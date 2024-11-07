@@ -49,7 +49,7 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <Header />
-          <main className="container mx-auto flex-grow">{children}</main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </Providers>
       </body>

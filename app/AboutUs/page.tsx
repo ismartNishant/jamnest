@@ -1,11 +1,9 @@
-import Login from '@/components/Auth/Login'
 import React from 'react'
+import AboutUs from './AboutUs'
 
 const page = () => {
   return (
-    <div>
-      <Login />
-    </div>
+    <div><AboutUs /></div>
   )
 }
 

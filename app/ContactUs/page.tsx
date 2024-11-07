@@ -1,11 +1,9 @@
-import Login from '@/components/Auth/Login'
 import React from 'react'
+import ContactUS from './ContactUS'
 
 const page = () => {
   return (
-    <div>
-      <Login />
-    </div>
+    <div><ContactUS /></div>
   )
 }
 

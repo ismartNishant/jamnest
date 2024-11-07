@@ -5,10 +5,15 @@ import { CgMenuRight } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/avatar";
+import { Avatar } from "@nextui-org/avatar";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { FaSearch } from "react-icons/fa";
+import { FaBell } from "react-icons/fa6";
+import { LuUser } from "react-icons/lu";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/dropdown";
+import { FiLogOut } from "react-icons/fi";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [animateHeader, setAnimateHeader] = useState(false);
@@ -33,44 +38,33 @@ const Header = () => {
   const isHomePage = pathname === "/";
 
   const links = [
-    { href: isHomePage ? "#" : "/", label: "Home" },
-    { href: isHomePage ? "#About" : "/#About", label: "About" },
-    { href: isHomePage ? "#Explore" : "/#Explore", label: "Explore" },
-    { href: "/Lineup", label: "Line up" },
+    { href: "/", label: "Home" },
+    { href: "/AboutUs", label: "About" },
+    { href: "/ContactUs", label: "Contact Us" },
+    { href: "/HelpAndSupport", label: "Help" },
   ];
 
   return (
-    <header
-      className={`w-full sticky  top-0 z-50 overflow-hidden font-medium text-lg`}
-    >
+    <header className={`w-full sticky  top-0 z-50 overflow-hidden text-lg`}>
       <div
-        className={`w-full mx-auto relative gap-10 flex items-center justify-between lg:justify-end duration-500 xl:px-10 ease-in ${animateHeader
-          ? "backdrop-blur-xl p-2    border-none"
-          : "p-2  backdrop-blur-md"
+        className={`w-full mx-auto relative gap-10 flex items-center justify-between p-2 lg:p-3  duration-500 xl:px-10 ease-in ${animateHeader
+          ? "backdrop-blur-xl   bg-white/5   border-none"
+          : " bg-white/10 backdrop-blur-md"
           }`}
       >
         {/* Logo */}
         <div className="flex-shrink-0 ">
-          <Link className="block relative overflow-hidden  font-HaloDek text-4xl tracking-wider" href="#" >JamNest</Link>
+          <Link
+            className="block relative overflow-hidden  font-HaloDek text-4xl tracking-wider"
+            href="#"
+          >
+            JamNest
+          </Link>
         </div>
 
-
-        {/* Menu Items */}
-        <nav className="hidden lg:flex justify-center gap-10 items-center   p-4 px-16  mr-auto ">
-          {links.map((link, index) => (
-            <Link
-              key={link.label}
-              className={`text-white text-shadow hover:text-secondary`}
-              href={link.href}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
         <div className="hidden lg:block">
           <Input
             isClearable
-            radius="lg"
             classNames={{
               input: [
                 "bg-transparent",
@@ -92,6 +86,7 @@ const Header = () => {
               ],
             }}
             placeholder="search for event..."
+            radius="lg"
             startContent={
               <FaSearch className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
             }
@@ -99,34 +94,39 @@ const Header = () => {
         </div>
 
         {/* Tickets Button */}
-        <div className="hidden lg:flex  gap-5 items-center">
+        <div className="flex  gap-5 items-center  uppercase ">
           <Button
-            href="#"
             as={Link}
+            className="font-medium shadow-inner  shadow-primary hidden lg:flex tracking-wide text-lg hover:bg-primary hover:text-white"
             color="primary"
-            variant="solid"
+            href="/register"
+            radius="full"
+            variant="shadow"
           >
             Sign Up
           </Button>
-          <Button
-            href="#"
-            as={Link}
-            color="primary"
-            variant="solid"
-          >
-            Sign In
-          </Button>
-          <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" size="lg" />
+          <Dropdown  >
+            <DropdownTrigger>
+              <Avatar  as="button" src="https://i.pravatar.cc/150?u=a04258114e29026302d" size="lg" />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Link Actions" color="primary" variant="bordered">
+              <DropdownItem href="/profile" key="profile" startContent={<LuUser className="text-lg " />}>Profile</DropdownItem>
+              <DropdownItem href="/HelpAndSupport" key="help" startContent={<FaBell className="text-lg " />}>Notification</DropdownItem>
+              <DropdownItem showDivider href="/HelpAndSupport" className="pb-3 " key="help" startContent={<IoChatbubbleEllipsesOutline className="text-lg " />}>Help & Support</DropdownItem>
+              <DropdownItem href="#" key="copy" startContent={<FiLogOut className="text-lg" />} >Logout</DropdownItem>
 
+            </DropdownMenu>
+          </Dropdown>
+          <button
+            className="text-3xl lg:hidden items-center  bg-primary rounded-xl p-1"
+            onClick={() => setIsOpen(true)}
+          >
+            <CgMenuRight />
+          </button>
         </div>
 
-        {/* Hamburger Menu for Mobile */}
-        <button
-          className="text-3xl lg:hidden items-center  bg-primary rounded-xl p-1"
-          onClick={() => setIsOpen(true)}
-        >
-          <CgMenuRight />
-        </button>
+
+
       </div>
 
       {/* Mobile Menu */}
