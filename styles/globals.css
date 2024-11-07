@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'GoKhan';
+  src: url('/fonts/gokhan/Gokhan.otf');
+  font-style: normal
+}
+@font-face {
+  font-family: 'HaloDek';
+  src: url('/fonts/halo_dek/HaloDek.otf');
+  font-style: normal
+}
+@font-face {
+  font-family: 'Namaku';
+  src: url('/fonts/namaku/Namaku.otf');
+  font-style: normal
+}
+
+
+@layer base {
+  .font-Gokhan {
+      font-family: 'Gokhan', 'sans-serif';
+  }
+
+  .font-HaloDek {
+      font-family: 'HaloDek', 'sans-serif';
+  }
+
+  .font-Namaku {
+      font-family: 'Namaku', 'sans-serif';
+  }
+}
+/* 
+const lato = Lato({
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+  weight: ['100', '300', '400', '700', '900']
+})
+
+const ubuntu = Ubuntu({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '400', '700']
+})
+const kanit = Kanit({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+})
+const titillium_Web = Titillium_Web({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['200', '300', '400', '600', '700', '900']
+})
+const bebas_Neue = Bebas_Neue({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400']
+})
+const anton = Anton({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400']
+}) 
+  */
