@@ -1,8 +1,12 @@
+import MainLayout from '@/components/Layout/MianLayout'
 import React from 'react'
 
 const AboutUs = () => {
   return (
-    <div>AboutUs</div>
+    <MainLayout >
+      AboutUs
+    </MainLayout>
+
   )
 }
 

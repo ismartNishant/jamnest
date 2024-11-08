@@ -1,8 +1,11 @@
+import MainLayout from '@/components/Layout/MianLayout'
 import React from 'react'
 
 const ContactUS = () => {
   return (
-    <div>ContactUS</div>
+    <MainLayout>
+      Contact us
+    </MainLayout>
   )
 }
 

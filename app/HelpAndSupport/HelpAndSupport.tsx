@@ -1,8 +1,12 @@
+import MainLayout from '@/components/Layout/MianLayout'
 import React from 'react'
 
 const HelpAndSupport = () => {
   return (
-    <div>HelpAndSupport</div>
+    <MainLayout>
+      <div>HelpAndSupport</div>
+    </MainLayout>
+
   )
 }
 

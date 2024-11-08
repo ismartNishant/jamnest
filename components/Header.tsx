@@ -14,6 +14,17 @@ import { LuUser } from "react-icons/lu";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/dropdown";
 import { FiLogOut } from "react-icons/fi";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+// import { Select, SelectItem } from "@nextui-org/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [animateHeader, setAnimateHeader] = useState(false);
@@ -39,15 +50,28 @@ const Header = () => {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/AboutUs", label: "About" },
+    { href: "/AboutUs", label: "About Us" },
     { href: "/ContactUs", label: "Contact Us" },
     { href: "/HelpAndSupport", label: "Help" },
+  ];
+
+  const cities = [
+    { key: "mumbai", label: "Mumbai" },
+    { key: "delhi", label: "Delhi" },
+    { key: "bangalore", label: "Bangalore" },
+    { key: "hyderabad", label: "Hyderabad" },
+    { key: "ahmedabad", label: "Ahmedabad" },
+    { key: "chennai", label: "Chennai" },
+    { key: "kolkata", label: "Kolkata" },
+    { key: "pune", label: "Pune" },
+    { key: "jaipur", label: "Jaipur" },
+    { key: "surat", label: "Surat" }
   ];
 
   return (
     <header className={`w-full sticky  top-0 z-50 overflow-hidden text-lg`}>
       <div
-        className={`w-full mx-auto relative gap-10 flex items-center justify-between p-2 lg:p-3  duration-500 xl:px-10 ease-in ${animateHeader
+        className={`w-full mx-auto relative gap-5 flex items-center justify-between p-2 lg:p-3 px-2 duration-500 xl:px-10 ease-in ${animateHeader
           ? "backdrop-blur-xl   bg-white/5   border-none"
           : " bg-white/10 backdrop-blur-md"
           }`}
@@ -61,15 +85,27 @@ const Header = () => {
             JamNest
           </Link>
         </div>
+        {/* Menu Items */}
+        <nav className="hidden lg:flex justify-center gap-10 items-center   p-4 px-16  mr-auto ">
+          {links.map((link, index) => (
+            <Link
+              key={link.label}
+              className={`text-white text-shadow hover:text-primary`}
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
           <Input
             isClearable
             classNames={{
               input: [
                 "bg-transparent",
                 "text-black/90 dark:text-white/90",
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                "placeholder:text-default-700/50 dark:placeholder:text-white/60 text-lg",
               ],
               innerWrapper: "bg-transparent",
               inputWrapper: [
@@ -91,29 +127,43 @@ const Header = () => {
               <FaSearch className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
             }
           />
+          <Select >
+            <SelectTrigger className="border-0 text-base cursor-pointer outline-none active:outline-none hover:bg-primary focus:outline-none w-44">
+              <SelectValue placeholder="City" />
+            </SelectTrigger>
+            <SelectContent className="bg-zinc-900 border-0 cursor-pointer ">
+              <SelectGroup>
+                <SelectLabel>Cities</SelectLabel>
+                {cities.map((city) => (
+                  <SelectItem key={city.key} className="hover:bg-primary cursor-pointer " value={city.key}>
+                    {city.label}
+                  </SelectItem>
+                ))}
+
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
 
         {/* Tickets Button */}
         <div className="flex  gap-5 items-center  uppercase ">
           <Button
             as={Link}
-            className="font-medium shadow-inner  shadow-primary hidden lg:flex tracking-wide text-lg hover:bg-primary hover:text-white"
-            color="primary"
-            href="/register"
+            className="font-medium px-10  border-primary bg-transparent text-primary-50  hover:scale-105  bg-gradient-to-tr from-primary to-secondary hidden lg:flex tracking-wide text-lg "
+            href="/login"
             radius="full"
-            variant="shadow"
           >
-            Sign Up
+            Sign In
           </Button>
           <Dropdown  >
             <DropdownTrigger>
-              <Avatar  as="button" src="https://i.pravatar.cc/150?u=a04258114e29026302d" size="lg" />
+              <Avatar as="button" src="https://i.pravatar.cc/150?u=a04258114e29026302d" className="w-10 h-10 lg:w-14 lg:h-14" />
             </DropdownTrigger>
             <DropdownMenu aria-label="Link Actions" color="primary" variant="bordered">
               <DropdownItem href="/profile" key="profile" startContent={<LuUser className="text-lg " />}>Profile</DropdownItem>
-              <DropdownItem href="/HelpAndSupport" key="help" startContent={<FaBell className="text-lg " />}>Notification</DropdownItem>
+              <DropdownItem href="/HelpAndSupport" key="notification" startContent={<FaBell className="text-lg " />}>Notification</DropdownItem>
               <DropdownItem showDivider href="/HelpAndSupport" className="pb-3 " key="help" startContent={<IoChatbubbleEllipsesOutline className="text-lg " />}>Help & Support</DropdownItem>
-              <DropdownItem href="#" key="copy" startContent={<FiLogOut className="text-lg" />} >Logout</DropdownItem>
+              <DropdownItem href="#" key="logout" startContent={<FiLogOut className="text-lg" />} >Logout</DropdownItem>
 
             </DropdownMenu>
           </Dropdown>
@@ -150,7 +200,7 @@ const Header = () => {
               {links.map((link) => (
                 <Link
                   key={link.href}
-                  className={` hover:text-primary`}
+                  className={` hover:text-primary text-2xl`}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                 >
@@ -159,17 +209,14 @@ const Header = () => {
               ))}
             </nav>
 
-            <div className="mx-auto">
-              {" "}
-              <Link
-                className="text-shadow"
-                href="/Tickets"
-                onClick={() => setIsOpen(false)}
-              >
-                {" "}
-                Tickets
-              </Link>{" "}
-            </div>
+            <Button
+              as={Link}
+              className="font-medium  uppercase border-primary bg-transparent text-primary-50  hover:scale-105  bg-gradient-to-tr from-primary to-secondary lg:hidden flex tracking-wide text-xl "
+              href="/login"
+              radius="full"
+            >
+              Sign In
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>
