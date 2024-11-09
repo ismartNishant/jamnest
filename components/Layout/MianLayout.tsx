@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import ScrollToTopWithProgress from "../Common/ScrollToTop";
+
+import Footer from "@/components/Common/Footer";
+import Header from "@/components/Common/Header";
 
 export default function MainLayout({
   children,
@@ -29,6 +31,7 @@ export default function MainLayout({
     <>
       {!hideHeaderFooter && <Header />}
       <main className="min-h-screen">{children}</main>
+      {!hideHeaderFooter && <ScrollToTopWithProgress />}
       {!hideHeaderFooter && <Footer />}
     </>
   );

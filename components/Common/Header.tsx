@@ -8,22 +8,25 @@ import { usePathname } from "next/navigation";
 import { Avatar } from "@nextui-org/avatar";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import { FaSearch } from "react-icons/fa";
 import { FaBell } from "react-icons/fa6";
-import { LuUser } from "react-icons/lu";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/dropdown";
+import { LuSearch, LuUser } from "react-icons/lu";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/dropdown";
 import { FiLogOut } from "react-icons/fi";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
-// import { Select, SelectItem } from "@nextui-org/select";
+
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,24 +60,19 @@ const Header = () => {
 
   const cities = [
     { key: "mumbai", label: "Mumbai" },
+    { key: "pune", label: "Pune" },
     { key: "delhi", label: "Delhi" },
     { key: "bangalore", label: "Bangalore" },
-    { key: "hyderabad", label: "Hyderabad" },
-    { key: "ahmedabad", label: "Ahmedabad" },
-    { key: "chennai", label: "Chennai" },
-    { key: "kolkata", label: "Kolkata" },
-    { key: "pune", label: "Pune" },
-    { key: "jaipur", label: "Jaipur" },
-    { key: "surat", label: "Surat" }
   ];
 
   return (
     <header className={`w-full sticky  top-0 z-50 overflow-hidden text-lg`}>
       <div
-        className={`w-full mx-auto relative gap-5 flex items-center justify-between p-2 lg:p-3 px-2 duration-500 xl:px-10 ease-in ${animateHeader
-          ? "backdrop-blur-xl   bg-white/5   border-none"
-          : " bg-white/10 backdrop-blur-md"
-          }`}
+        className={`w-full mx-auto relative gap-5 flex items-center justify-between p-2 lg:p-3 px-2 duration-500 xl:px-10 ease-in ${
+          animateHeader
+            ? "backdrop-blur-xl   bg-white/5   border-none"
+            : " bg-white/10 backdrop-blur-md"
+        }`}
       >
         {/* Logo */}
         <div className="flex-shrink-0 ">
@@ -87,7 +85,7 @@ const Header = () => {
         </div>
         {/* Menu Items */}
         <nav className="hidden lg:flex justify-center gap-10 items-center   p-4 px-16  mr-auto ">
-          {links.map((link, index) => (
+          {links.map((link) => (
             <Link
               key={link.label}
               className={`text-white text-shadow hover:text-primary`}
@@ -104,42 +102,41 @@ const Header = () => {
             classNames={{
               input: [
                 "bg-transparent",
-                "text-black/90 dark:text-white/90",
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60 text-lg",
+                "placeholder:text-default-700/50 dark:placeholder:text-white/60 text-lg tracking-wide font-normal",
               ],
               innerWrapper: "bg-transparent",
               inputWrapper: [
                 "shadow-xl",
-                "bg-default-200/50",
-                "dark:bg-default/60",
+                "dark:bg-primary/5",
                 "backdrop-blur-xl",
                 "backdrop-saturate-200",
-                "hover:bg-default-200/70",
-                "dark:hover:bg-default/70",
-                "group-data-[focus=true]:bg-default-200/50",
-                "dark:group-data-[focus=true]:bg-default/60",
+                "group-data-[focus=true]:bg-primary/50",
+                "dark:group-data-[focus=true]:bg-primary/50",
                 "!cursor-text",
               ],
             }}
-            placeholder="search for event..."
-            radius="lg"
+            placeholder="Search for event..."
+            radius="full"
+            size="lg"
             startContent={
-              <FaSearch className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+              <LuSearch className="text-black/50 mb-0.5 text-xl dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
             }
           />
-          <Select >
-            <SelectTrigger className="border-0 text-base cursor-pointer outline-none active:outline-none hover:bg-primary focus:outline-none w-44">
+          <Select>
+            <SelectTrigger className="border-0 flex items-center justify-between gap-2 text-lg uppercase font-semibold rounded-full focus:ring-0 cursor-pointer bg-primary hover:scale-105 duration-300 ease-in-out   w-auto">
               <SelectValue placeholder="City" />
             </SelectTrigger>
-            <SelectContent className="bg-zinc-900 border-0 cursor-pointer ">
-              <SelectGroup>
-                <SelectLabel>Cities</SelectLabel>
+            <SelectContent className="bg-zinc-900 border-0 cursor-pointer  ">
+              <SelectGroup className="  items-center p-2">
                 {cities.map((city) => (
-                  <SelectItem key={city.key} className="hover:bg-primary cursor-pointer " value={city.key}>
+                  <SelectItem
+                    key={city.key}
+                    className="hover:bg-primary cursor-pointer w-auto uppercase "
+                    value={city.key}
+                  >
                     {city.label}
                   </SelectItem>
                 ))}
-
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -149,22 +146,59 @@ const Header = () => {
         <div className="flex  gap-5 items-center  uppercase ">
           <Button
             as={Link}
-            className="font-medium px-10  border-primary bg-transparent text-primary-50  hover:scale-105  bg-gradient-to-tr from-primary to-secondary hidden lg:flex tracking-wide text-lg "
+            className="font-medium px-8 hover:scale-105  hidden lg:flex tracking-wide text-lg "
+            color="primary"
             href="/login"
             radius="full"
+            variant="shadow"
           >
             Sign In
           </Button>
-          <Dropdown  >
+          <Dropdown>
             <DropdownTrigger>
-              <Avatar as="button" src="https://i.pravatar.cc/150?u=a04258114e29026302d" className="w-10 h-10 lg:w-14 lg:h-14" />
+              <Avatar
+                as="button"
+                className="w-10 h-10 lg:w-14 lg:h-14"
+                src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+              />
             </DropdownTrigger>
-            <DropdownMenu aria-label="Link Actions" color="primary" variant="bordered">
-              <DropdownItem href="/profile" key="profile" startContent={<LuUser className="text-lg " />}>Profile</DropdownItem>
-              <DropdownItem href="/HelpAndSupport" key="notification" startContent={<FaBell className="text-lg " />}>Notification</DropdownItem>
-              <DropdownItem showDivider href="/HelpAndSupport" className="pb-3 " key="help" startContent={<IoChatbubbleEllipsesOutline className="text-lg " />}>Help & Support</DropdownItem>
-              <DropdownItem href="#" key="logout" startContent={<FiLogOut className="text-lg" />} >Logout</DropdownItem>
-
+            <DropdownMenu
+              aria-label="Link Actions"
+              color="primary"
+              variant="bordered"
+            >
+              <DropdownItem
+                key="profile"
+                href="/profile"
+                startContent={<LuUser className="text-lg " />}
+              >
+                Profile
+              </DropdownItem>
+              <DropdownItem
+                key="notification"
+                href="/HelpAndSupport"
+                startContent={<FaBell className="text-lg " />}
+              >
+                Notification
+              </DropdownItem>
+              <DropdownItem
+                key="help"
+                showDivider
+                className="pb-3 "
+                href="/HelpAndSupport"
+                startContent={
+                  <IoChatbubbleEllipsesOutline className="text-lg " />
+                }
+              >
+                Help & Support
+              </DropdownItem>
+              <DropdownItem
+                key="logout"
+                href="#"
+                startContent={<FiLogOut className="text-lg" />}
+              >
+                Logout
+              </DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <button
@@ -174,9 +208,6 @@ const Header = () => {
             <CgMenuRight />
           </button>
         </div>
-
-
-
       </div>
 
       {/* Mobile Menu */}
@@ -211,9 +242,11 @@ const Header = () => {
 
             <Button
               as={Link}
-              className="font-medium  uppercase border-primary bg-transparent text-primary-50  hover:scale-105  bg-gradient-to-tr from-primary to-secondary lg:hidden flex tracking-wide text-xl "
+              className="font-medium  uppercase hover:scale-105  lg:hidden flex tracking-wide text-xl "
+              color="primary"
               href="/login"
               radius="full"
+              variant="shadow"
             >
               Sign In
             </Button>
