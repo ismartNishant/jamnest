@@ -30,7 +30,7 @@ export default function MainLayout({
   return (
     <>
       {!hideHeaderFooter && <Header />}
-      <main className="min-h-screen">{children}</main>
+      <main className="min-h-screen bg-secondary-900/50">{children}</main>
       {!hideHeaderFooter && <ScrollToTopWithProgress />}
       {!hideHeaderFooter && <Footer />}
     </>

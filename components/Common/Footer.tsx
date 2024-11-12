@@ -36,7 +36,7 @@ const Footer = () => {
             "linear-gradient(80deg, rgba(221, 221, 221, 0), rgba(255, 255, 255, 0.15) 52%, rgba(255, 255, 255, 0))",
         }}
       />
-      <div className="mx-auto px-4 md:px-24 bg-primary-900/20">
+      <div className="mx-auto px-4 md:px-24 bg-primary-900/5">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-8 py-5 lg:py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8 ">
           <div className="col-span-full  lg:col-span-3 mb-0">
             <Fade>

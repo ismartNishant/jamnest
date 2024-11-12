@@ -23,7 +23,7 @@ export async function generateMetadata() {
       manifest: "/site.webmanifest",
       twitter: {
         card: "summary_large_image",
-        title: "JamNest ",
+        title: "JamNest Privacy-Policy",
         description:
           "At JamNest , we are dedicated to shaping the future of brands in an ever-evolving landscape",
         siteId: "1467726470533754880",

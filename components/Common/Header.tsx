@@ -66,12 +66,12 @@ const Header = () => {
   ];
 
   return (
-    <header className={`w-full sticky  top-0 z-50 overflow-hidden text-lg`}>
+    <header className={`w-full fixed top-0 z-50 overflow-hidden text-lg`}>
       <div
-        className={`w-full mx-auto relative gap-5 flex items-center justify-between p-2 lg:p-3 px-2 duration-500 xl:px-10 ease-in ${
+        className={`w-full mx-auto backdrop-blur-xl relative gap-5 flex items-center  justify-between p-2 lg:p-3 px-2 duration-500 xl:px-10 ease-in ${
           animateHeader
-            ? "backdrop-blur-xl   bg-white/5   border-none"
-            : " bg-white/10 backdrop-blur-md"
+            ? "bg-secondary-900/50 border-none"
+            : ""
         }`}
       >
         {/* Logo */}

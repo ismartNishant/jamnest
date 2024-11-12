@@ -10,20 +10,8 @@ import {
 
 const Hero = () => {
   return (
-    <div className='min-h-screen'>
-      <Carousel className="w-full max-w-screen-xl">
-        <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
-              <div className="p-1">
-                 
-                    <span className="text-4xl font-semibold">{index + 1}</span>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      
-      </Carousel>
+    <div className='min-h-screen flex justify-center items-center'>
+     <h1 className='text-[350px] text-center font-HaloDek tracking-wide'>JamNest</h1>
     </div>
   )
 }
