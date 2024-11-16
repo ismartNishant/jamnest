@@ -18,7 +18,7 @@ const Footer = () => {
     { href: "/", label: "Home" },
     { href: "/AboutUs", label: "About Us" },
     { href: "/ContactUs", label: "Contact Us" },
-    { href: isHomePage ? "#Events" : "/#Events", label: "Events" },
+    { href: isHomePage ? "#Parties" : "/#Parties", label: "Parties" },
   ];
   const supportLinks = [
     { href: "/TermsAndConditions", label: "Terms & Conditions" },
@@ -42,7 +42,7 @@ const Footer = () => {
             <Fade>
               <Link
                 className="block relative overflow-hidden  font-HaloDek text-4xl lg:text-6xl tracking-wider"
-                href="#"
+                href="/"
               >
                 JamNest
               </Link>

@@ -4,6 +4,8 @@ import React from "react";
 import Hero from "@/components/Common/Hero";
 import NewsLetter from "@/components/Common/NewsLetter";
 import MainLayout from "@/components/Layout/MianLayout";
+import Parties from "@/components/Home/Parties";
+import BannerCarousel from "@/components/Common/BannerCarousel";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.globalkartel.com"),
@@ -66,9 +68,19 @@ export const metadata: Metadata = {
 };
 
 const page = () => {
+  const images = [
+    { imgSrc: "/images/banner-carousel/b1.jpg", name: "Banner 1" },
+    { imgSrc: "/images/banner-carousel/b3.jpg", name: "Banner 2" },
+    { imgSrc: "/images/banner-carousel/b2.jpg", name: "Banner 3" },
+    { imgSrc: "/images/banner-carousel/b4.jpg", name: "Banner 4" },
+  ];
+
   return (
     <MainLayout>
       <Hero />
+      <Parties />
+       <BannerCarousel carouselBannerImages={images} />
+
       <NewsLetter />
     </MainLayout>
   );

@@ -8,8 +8,9 @@ import { usePathname } from "next/navigation";
 import { Avatar } from "@nextui-org/avatar";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import { FaBell } from "react-icons/fa6";
+import { FaBell, FaRegUser } from "react-icons/fa6";
 import { LuSearch, LuUser } from "react-icons/lu";
+import { GiPartyPopper } from "react-icons/gi";
 import {
   Dropdown,
   DropdownTrigger,
@@ -27,6 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import AuthButton from "./Auth";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,33 +70,21 @@ const Header = () => {
   return (
     <header className={`w-full fixed top-0 z-50 overflow-hidden text-lg`}>
       <div
-        className={`w-full mx-auto backdrop-blur-xl relative gap-5 flex items-center  justify-between p-2 lg:p-3 px-2 duration-500 xl:px-10 ease-in ${
-          animateHeader
-            ? "bg-secondary-900/50 border-none"
-            : ""
-        }`}
+        className={`w-full mx-auto backdrop-blur-xl relative gap-5 flex items-center  justify-between p-2 lg:p-3 px-2 duration-500 xl:px-10 ease-in ${animateHeader
+          ? "bg-secondary-900/50 border-none"
+          : "bg-white/5"
+          }`}
       >
         {/* Logo */}
         <div className="flex-shrink-0 ">
           <Link
             className="block relative overflow-hidden  font-HaloDek text-4xl tracking-wider"
-            href="#"
+            href="/"
           >
             JamNest
           </Link>
         </div>
-        {/* Menu Items */}
-        <nav className="hidden lg:flex justify-center gap-10 items-center   p-4 px-16  mr-auto ">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              className={`text-white text-shadow hover:text-primary`}
-              href={link.href}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+
 
         <div className="hidden lg:flex items-center gap-4">
           <Input
@@ -144,21 +134,13 @@ const Header = () => {
 
         {/* Tickets Button */}
         <div className="flex  gap-5 items-center  uppercase ">
-          <Button
-            as={Link}
-            className="font-medium px-8 hover:scale-105  hidden lg:flex tracking-wide text-lg "
-            color="primary"
-            href="/login"
-            radius="full"
-            variant="shadow"
-          >
-            Sign In
-          </Button>
+          <Button className="uppercase font-semibold  hidden lg:flex text-base" variant="ghost" color="primary" radius="full" endContent={<GiPartyPopper className="text-2xl" />}>Host A party</Button>
+          <AuthButton />
           <Dropdown>
             <DropdownTrigger>
               <Avatar
                 as="button"
-                className="w-10 h-10 lg:w-14 lg:h-14"
+                className="w-10 h-10 lg:w-12 lg:h-12"
                 src="https://i.pravatar.cc/150?u=a04258114e29026302d"
               />
             </DropdownTrigger>
@@ -215,7 +197,7 @@ const Header = () => {
         {isOpen && (
           <motion.div
             animate={{ opacity: 1, x: 0 }} // Slide in
-            className="fixed inset-0 bg-secondary-900 flex flex-col px-10 space-y-16 z-100 justify-center"
+            className="fixed inset-0 bg-black flex flex-col px-10 space-y-16 z-100 justify-center"
             exit={{ x: "100%" }} // Slide out
             initial={{ opacity: 0, x: "100%" }} // Start off-screen
             transition={{ duration: 0.3 }} // Smooth transition
@@ -239,17 +221,19 @@ const Header = () => {
                 </Link>
               ))}
             </nav>
-
-            <Button
-              as={Link}
-              className="font-medium  uppercase hover:scale-105  lg:hidden flex tracking-wide text-xl "
-              color="primary"
-              href="/login"
-              radius="full"
-              variant="shadow"
-            >
-              Sign In
-            </Button>
+            <div className="  flex items-center gap-4 justify-center">
+              <Button className="uppercase  font-semibold  lg:hidden flex lg:text-base" variant="ghost" color="primary" radius="full" endContent={<GiPartyPopper className="text-2xl" />}>Host A party</Button>
+              <Button
+                as={Link}
+                className="font-medium  uppercase hover:scale-105  lg:hidden flex tracking-wide text-base "
+                color="primary"
+                href="/login"
+                radius="full"
+                variant="shadow"
+              >
+                Sign In
+              </Button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

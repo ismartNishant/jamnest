@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
-import { Titillium_Web } from "next/font/google";
+import {  Titillium_Web} from "next/font/google";
 
 import { Providers } from "./providers";
 
@@ -92,7 +92,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body
-        className={clsx("min-h-screen bg-background font-sans antialiased")}
+        className={clsx("min-h-screen bg-background  antialiased")}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           {children}
