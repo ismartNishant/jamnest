@@ -10,21 +10,29 @@ import {
 import React, { useEffect } from "react";
 import { FaRegUser } from "react-icons/fa6";
 import { TbPhone } from "react-icons/tb";
+import SignUpModal from "./SignUpModal";
+import { Ubuntu } from "next/font/google";
+
+const ubuntu = Ubuntu({
+    subsets: ["latin"],
+    display: "swap",
+    weight: ['300', '400', '500', '700'],
+});
 
 export default function AuthButton() {
-    const { isOpen, onOpen, onOpenChange } = useDisclosure(); // Number Verification Modal
-    const [isSignUpModalOpen, setIsSignUpModalOpen] = React.useState(false); // Sign-Up Modal
 
+const { isOpen: isVerificationOpen, onOpen: onVerificationOpen, onOpenChange: onVerificationOpenChange } = useDisclosure();
+    
+const { isOpen: isSignUpOpen, onOpen: onSignUpOpen, onOpenChange: onSignUpOpenChange } = useDisclosure();
 
-
-    const [value, setValue] = React.useState(""); // Phone number state
-    const [otp, setOtp] = React.useState(""); // OTP state
-    const [otpStage, setOtpStage] = React.useState(false); // OTP stage state
-    const [otpError, setOtpError] = React.useState(""); // OTP error state
-    const [isOtpVerified, setIsOtpVerified] = React.useState(false); // OTP verification success state
-    const [hasInteracted, setHasInteracted] = React.useState(false); // To track if the user has interacted with inputs
-    const [remainingTime, setRemainingTime] = React.useState(60); // Timer for OTP resend
-    const [isTimerActive, setIsTimerActive] = React.useState(false); // To track if timer is running
+const [value, setValue] = React.useState(""); // Phone number state
+const [otp, setOtp] = React.useState(""); // OTP state
+const [otpStage, setOtpStage] = React.useState(false); // OTP stage state
+const [otpError, setOtpError] = React.useState(""); // OTP error state
+const [isOtpVerified, setIsOtpVerified] = React.useState(false); // OTP verification success state
+const [hasInteracted, setHasInteracted] = React.useState(false); // To track if the user has interacted with inputs
+const [remainingTime, setRemainingTime] = React.useState(60); // Timer for OTP resend
+const [isTimerActive, setIsTimerActive] = React.useState(false); // To track if timer is running
 
     // Validate phone number for 10 digits
     const validatePhoneNumber = (value: string) => /^\d{10}$/.test(value);
@@ -60,11 +68,21 @@ export default function AuthButton() {
 
 
     // Handle OTP stage after clicking "Get OTP"
+    // Handle OTP stage after clicking "Get OTP"
     const handleGetOtp = (event: React.FormEvent) => {
         event.preventDefault();
-        if (!isPhoneInvalid && value !== "") {
+
+        if (value === "") {
+            setOtpError("Required"); // Show "Required" error if the phone number is empty
+            return;
+        }
+
+        if (!isPhoneInvalid && validatePhoneNumber(value)) {
+            setOtpError(""); // Clear any existing errors
             setOtpStage(true); // Proceed to OTP stage
             setIsTimerActive(true); // Start the timer
+        } else {
+            setOtpError("Please enter a valid 10-digit phone number"); // Error for invalid phone number
         }
     };
 
@@ -72,9 +90,9 @@ export default function AuthButton() {
     const handleVerifyOtp = (event: React.FormEvent) => {
         event.preventDefault();
         if (!isOtpInvalid && otp.length === 6) {
-            setIsOtpVerified(true); // Mark OTP as verified
-            onOpenChange(); // Close modal after verification
-            setIsSignUpModalOpen(true); // Open signUpModal
+            setIsOtpVerified(true);
+            onVerificationOpenChange(); // Close verification modal
+            onSignUpOpen(); // Open sign-up modal
             resetForm(); // Optionally reset the form
         }
     };
@@ -124,11 +142,11 @@ export default function AuthButton() {
         <>
             <Button
                 isIconOnly
-                className="hover:scale-105 hidden lg:flex text-xl w-10 h-10 lg:w-12 lg:h-12"
+                className="hover:scale-105  text-xl w-10 h-10 lg:w-12 lg:h-12"
                 color="primary"
                 radius="full"
                 variant="shadow"
-                onPress={onOpen}
+                onPress={onVerificationOpen}
             >
                 <FaRegUser />
             </Button>
@@ -136,15 +154,14 @@ export default function AuthButton() {
                 backdrop="blur"
                 className="bg-secondary-900 border-2 border-white/10 "
                 isDismissable={false}
-                isOpen={isOpen}
+                isOpen={isVerificationOpen}
                 placement="top-center"
                 size="4xl"
-                onOpenChange={onOpenChange}
+                onOpenChange={onVerificationOpenChange}
             >
-                <ModalContent className="pb-5">
+                <ModalContent className="py-5">
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1" />
                             <ModalBody className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center">
                                 <div className="relative w-full h-72 lg:h-96 overflow-hidden rounded-3xl shadow-white">
                                     <video
@@ -162,16 +179,20 @@ export default function AuthButton() {
                                         JamNest
                                     </h1>
 
-                                    <form
+                                    <form name="otpform"
+                                    id="otpForm"
                                         className="space-y-4"
                                         onSubmit={otpStage ? handleVerifyOtp : handleGetOtp}
                                     >
                                         {!otpStage ? (
                                             <>
-                                                <h1 className="text-3xl font-semibold uppercase pb-5 text-center">
+                                                <h1 className={`${ubuntu.className} text-2xl font-normal uppercase pb-5 text-center`}>
                                                     Verify your mobile number
                                                 </h1>
                                                 <Input
+                                                    isRequired
+                                                    name="mobilenumber"
+                                                    id="phoneNumber"
                                                     required
                                                     classNames={{
                                                         input: [
@@ -212,7 +233,7 @@ export default function AuthButton() {
                                                 <Button
                                                     className="w-full tracking-wider uppercase font-bold text-xl hover:scale-95 duration-300 ease-in-out"
                                                     color="primary"
-                                                    disabled={isPhoneInvalid || value === ""} // Disable button if the number is invalid
+                                                    disabled={isPhoneInvalid} // Disable button if the number is invalid
                                                     size="lg"
                                                     type="submit" // Submit the form
                                                     variant="shadow"
@@ -224,8 +245,7 @@ export default function AuthButton() {
                                             // OTP stage - render OTP input and verify button
                                             <>
                                                 <div className=" space-y-0.5 ">
-                                                    <h1 className="text-3xl font-semibold uppercase text-center pb-5">
-                                                        {" "}
+                                                    <h1 className={`${ubuntu.className} text-3xl font-normal uppercase pb-5 text-center`}>
                                                         OTP Verification
                                                     </h1>
                                                     <p>
@@ -236,6 +256,8 @@ export default function AuthButton() {
                                                     </p>
                                                 </div>
                                                 <Input
+                                                name="otpNumber"
+                                                    id="otpNumber"
                                                     classNames={{
                                                         input: [
                                                             "bg-transparent text-xl font-bold tracking-wider",
@@ -266,6 +288,8 @@ export default function AuthButton() {
                                                     pattern="[0-9]*"
                                                     placeholder="Enter OTP"
                                                     type="text"
+                                                    isRequired
+                                                    required
                                                     value={otp}
                                                     variant="bordered"
                                                     onValueChange={(inputValue) =>
@@ -275,7 +299,7 @@ export default function AuthButton() {
                                                 <Button
                                                     className="w-full tracking-wider uppercase font-bold text-xl hover:scale-95 duration-300 ease-in-out"
                                                     color="primary"
-                                                    disabled={isOtpInvalid || otp === ""} // Disable button if OTP is invalid
+                                                    disabled={isOtpInvalid} // Disable button if OTP is invalid
                                                     size="lg"
                                                     type="submit"
                                                     variant="shadow"
@@ -314,27 +338,9 @@ export default function AuthButton() {
                     )}
                 </ModalContent>
             </Modal>
-
-            <Modal
-                backdrop="blur"
-                isDismissable={false}
-                isOpen={isSignUpModalOpen}
-                placement="top-center"
-                size="4xl"
-                onOpenChange={setIsSignUpModalOpen}
-            >
-                <ModalContent>
-                    {(onClose) => (
-                        <ModalBody>
-                            <h1>Sign-Up Form</h1>
-                            {/* Add Sign-Up Form Content */}
-                            <Button onPress={() => setIsSignUpModalOpen(false)}>
-                                Close
-                            </Button>
-                        </ModalBody>
-                    )}
-                </ModalContent>
-            </Modal>
+            <SignUpModal
+                isOpen={isSignUpOpen} onOpenChange={onSignUpOpenChange}
+            />
         </>
     );
 }

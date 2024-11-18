@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { Avatar } from "@nextui-org/avatar";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import { FaBell, FaRegUser } from "react-icons/fa6";
+import { FaBell } from "react-icons/fa6";
 import { LuSearch, LuUser } from "react-icons/lu";
 import { GiPartyPopper } from "react-icons/gi";
 import {
@@ -28,7 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import AuthButton from "./Auth";
+import AuthButton from "../Auth/GetOTP";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,6 +65,7 @@ const Header = () => {
     { key: "pune", label: "Pune" },
     { key: "delhi", label: "Delhi" },
     { key: "bangalore", label: "Bangalore" },
+    { key: "kolkata", label: "Kolkata" }
   ];
 
   return (
@@ -89,6 +90,8 @@ const Header = () => {
         <div className="hidden lg:flex items-center gap-4">
           <Input
             isClearable
+            name="searchParties"
+            id="searchParties"
             classNames={{
               input: [
                 "bg-transparent",
@@ -112,7 +115,7 @@ const Header = () => {
               <LuSearch className="text-black/50 mb-0.5 text-xl dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
             }
           />
-          <Select>
+          <Select name="select-cities" >
             <SelectTrigger className="border-0 flex items-center justify-between gap-2 text-lg uppercase font-semibold rounded-full focus:ring-0 cursor-pointer bg-primary hover:scale-105 duration-300 ease-in-out   w-auto">
               <SelectValue placeholder="City" />
             </SelectTrigger>
@@ -223,16 +226,6 @@ const Header = () => {
             </nav>
             <div className="  flex items-center gap-4 justify-center">
               <Button className="uppercase  font-semibold  lg:hidden flex lg:text-base" variant="ghost" color="primary" radius="full" endContent={<GiPartyPopper className="text-2xl" />}>Host A party</Button>
-              <Button
-                as={Link}
-                className="font-medium  uppercase hover:scale-105  lg:hidden flex tracking-wide text-base "
-                color="primary"
-                href="/login"
-                radius="full"
-                variant="shadow"
-              >
-                Sign In
-              </Button>
             </div>
           </motion.div>
         )}

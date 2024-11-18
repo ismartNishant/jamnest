@@ -6,6 +6,7 @@ import NewsLetter from "@/components/Common/NewsLetter";
 import MainLayout from "@/components/Layout/MianLayout";
 import Parties from "@/components/Home/Parties";
 import BannerCarousel from "@/components/Common/BannerCarousel";
+import Faqs from "@/components/Common/Faqs";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.globalkartel.com"),
@@ -79,8 +80,8 @@ const page = () => {
     <MainLayout>
       <Hero />
       <Parties />
-       <BannerCarousel carouselBannerImages={images} />
-
+      <BannerCarousel carouselBannerImages={images} />
+      <Faqs />
       <NewsLetter />
     </MainLayout>
   );
