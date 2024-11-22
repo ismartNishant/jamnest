@@ -29,10 +29,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import AuthButton from "../Auth/GetOTP";
+import NotificationDrawer from "./NotificationDrawer";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [animateHeader, setAnimateHeader] = useState(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+
+  const handleNotificationClick = () => {
+    setIsNotificationOpen(true); // Open the notification drawer
+  };
+
+  const handleCloseNotification = () => {
+    setIsNotificationOpen(false); // Close the notification drawer
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -161,7 +171,7 @@ const Header = () => {
               </DropdownItem>
               <DropdownItem
                 key="notification"
-                href="/HelpAndSupport"
+                onClick={handleNotificationClick}
                 startContent={<FaBell className="text-lg " />}
               >
                 Notification
@@ -186,6 +196,7 @@ const Header = () => {
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
+         
           <button
             className="text-3xl lg:hidden items-center  bg-primary rounded-xl p-1"
             onClick={() => setIsOpen(true)}
@@ -230,6 +241,7 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <NotificationDrawer isOpen={isNotificationOpen} onClose={handleCloseNotification} />
     </header>
   );
 };

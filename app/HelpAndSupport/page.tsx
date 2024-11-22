@@ -1,5 +1,6 @@
 import React from 'react'
 import HelpAndSupport from './HelpAndSupport'
+import MainLayout from '@/components/Layout/MianLayout';
 
 export async function generateMetadata() {
   return {
@@ -56,7 +57,7 @@ export async function generateMetadata() {
 }
 const page = () => {
   return (
-    <div><HelpAndSupport /></div>
+    <MainLayout><HelpAndSupport /></MainLayout>
   )
 }
 

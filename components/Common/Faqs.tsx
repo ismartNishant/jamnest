@@ -1,8 +1,18 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import Image from "next/image";
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
+import { Ubuntu } from "next/font/google";
+import { FaChevronRight, FaMinus, FaPlus } from "react-icons/fa6";
+import { HeadingOne } from "./Headings/HeadingOne";
+const ubuntu = Ubuntu({
+    subsets: ["latin"],
+    display: "swap",
+    weight: ["300", "400", "700"],
+});
 
 const Faqs = () => {
     const faqData = [
@@ -52,37 +62,54 @@ const Faqs = () => {
 
     return (
         <div className="w-full md:px-8 xl:px-24 py-12 xl:pt-24 px-4">
-            <h2 className="text-2xl font-bold mb-4 text-center">FAQs</h2>
+            <HeadingOne className="text-3xl lg:text-6xl  font-bold uppercase text-center pb-10">
+                FAQs
+            </HeadingOne>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="col-span-1 flex justify-center items-center">
+            <div className="flex  gap-20  items-start mx-auto w-full">
+                <div className="max-w-md flex justify-center items-center w-full ">
                     <motion.div
                         key={currentImage}
-                        initial={{ opacity: 0, }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, }}
-                        transition={{ duration: 0.8 }}
                         className="w-full h-96 rounded-lg overflow-hidden shadow-md relative"
+                        exit={{ opacity: 0 }}
+                        initial={{ opacity: 0 }}
+                        transition={{ duration: 0.8 }}
                     >
                         <Image
                             fill
-                            src={images[currentImage]}
                             alt={`Party ${currentImage + 1}`}
                             className="w-full h-full object-cover"
+                            src={images[currentImage]}
                         />
                     </motion.div>
                 </div>
+                <div className="  w-full mx-auto">
+                    <Accordion
+                        className="gap-4  flex flex-col"
+                        defaultExpandedKeys={["0"]}
+                        itemClasses={{
+                            base: "text-white   bg-transparent",
+                            title: `${ubuntu.className} text-3xl uppercase font-semibold`,
+                            indicator: "text-white text-2xl bg-primary rounded-sm p-1 data-[open=true]:-rotate-90 ",
+                            trigger: "  flex items-start  ",
+                        }}
+                        selectionMode="multiple"
+                        variant='light'
 
-                {/* Right Column with Accordion */}
-                <div className="col-span-2 max-w-screen-md w-full mx-auto">
-                    <Accordion>
+                    >
                         {faqData.map((faq, index) => (
                             <AccordionItem
                                 key={index}
                                 aria-label={`FAQ ${index + 1}`}
+                                indicator={({ isOpen }) =>
+                                    isOpen ? <FaChevronRight /> : <FaChevronDown />
+                                }
                                 title={faq.question}
                             >
-                                <p>{faq.answer}</p>
+                                <p className="text-lg tracking-wide text-gray-4">
+                                    {faq.answer}
+                                </p>
                             </AccordionItem>
                         ))}
                     </Accordion>

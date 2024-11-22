@@ -7,6 +7,8 @@ import MainLayout from "@/components/Layout/MianLayout";
 import Parties from "@/components/Home/Parties";
 import BannerCarousel from "@/components/Common/BannerCarousel";
 import Faqs from "@/components/Common/Faqs";
+import GradientHeading from "@/components/Common/Headings/GradientHeading";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.globalkartel.com"),
