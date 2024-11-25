@@ -11,7 +11,62 @@ interface Party {
   location: string;
   date: string;
   price: string;
+  time:string;
   partyType: string;
+}
+
+export async function generateMetadata() {
+  return {
+    title: "Event Details",
+    description:
+      "At JamNest , we are dedicated to shaping the future of brands in an ever-evolving landscape",
+    keywords: "JamNest , brands, marketing",
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: false,
+        noimageindex: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    manifest: "/site.webmanifest",
+    twitter: {
+      card: "summary_large_image",
+      title: "Event Details ",
+      description:
+        "At JamNest , we are dedicated to shaping the future of brands in an ever-evolving landscape",
+      siteId: "1467726470533754880",
+      creator: "Trantrawave",
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 650,
+        },
+      ],
+    },
+    category: "Marketing And entertainment",
+    openGraph: {
+      title: "Event Details",
+      description:
+        "At JamNest , we are dedicated to shaping the future of brands in an ever-evolving landscape",
+      type: "website",
+      url: "https://www.globalkartel.com",
+      siteName: "JamNest",
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 650,
+        },
+      ],
+    },
+  };
 }
 
 export async function generateStaticParams() {
@@ -35,7 +90,6 @@ export default function PartyDetailPage({
 
   return (
     <MainLayout>
-
       <PartyDetails party={party} />
     </MainLayout>
   );

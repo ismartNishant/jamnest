@@ -81,9 +81,9 @@ const Header = () => {
   return (
     <header className={`w-full fixed top-0 z-50 overflow-hidden text-lg`}>
       <div
-        className={`w-full mx-auto backdrop-blur-xl relative gap-5 flex items-center  justify-between p-2 lg:p-3 px-2 duration-500 xl:px-10 ease-in ${animateHeader
-          ? "bg-secondary-900/50 border-none"
-          : "bg-white/5"
+        className={`w-full mx-auto backdrop-blur-xl relative gap-5 flex items-center  justify-between  duration-500  ease-in ${animateHeader
+          ? "bg-secondary-900/50 border-none  p-3 lg:p-4  xl:px-24 "
+          : "bg-white/5 p-2 lg:p-3 xl:px-12 "
           }`}
       >
         {/* Logo */}

@@ -7,3 +7,4 @@ export default function ErrorBoundry({ error }: { error: Error }) {
     </div>
     );
 }
+
