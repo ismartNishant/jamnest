@@ -4,6 +4,7 @@ import clsx from "clsx";
 import {  Titillium_Web} from "next/font/google";
 
 import { Providers } from "./providers";
+import { Toaster } from "@/components/ui/toaster";
 
 
 const titillium_Web = Titillium_Web({
@@ -96,6 +97,7 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           {children}
+          <Toaster />
         </Providers>
       </body>
     </html>

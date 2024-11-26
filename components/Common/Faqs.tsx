@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
-import { FaChevronUp } from "react-icons/fa";
 import { Ubuntu } from "next/font/google";
-import { FaChevronRight, FaMinus, FaPlus } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa6";
 import { HeadingOne } from "./Headings/HeadingOne";
+
 const ubuntu = Ubuntu({
     subsets: ["latin"],
     display: "swap",

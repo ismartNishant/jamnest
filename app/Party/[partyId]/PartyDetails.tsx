@@ -4,8 +4,10 @@ import { LuCalendarRange } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
 import { GrAlarm } from "react-icons/gr";
 import { Tooltip } from "@nextui-org/tooltip";
+import { Avatar } from "@nextui-org/avatar";
 
 import PriceCard from "@/components/Common/Cards/PriceCard";
+import BannerCarousel from "@/components/Common/BannerCarousel";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -25,6 +27,13 @@ interface Party {
 }
 
 const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
+  const images = [
+    { imgSrc: "/images/banner-carousel/b1.jpg", name: "Banner 1" },
+    { imgSrc: "/images/banner-carousel/b3.jpg", name: "Banner 2" },
+    { imgSrc: "/images/banner-carousel/b2.jpg", name: "Banner 3" },
+    { imgSrc: "/images/banner-carousel/b4.jpg", name: "Banner 4" },
+  ];
+
   return (
     <section className="w-full md:px-8 xl:px-24 py-16 xl:pt-20 px-4 ">
       <div className="max-w-screen-xl mx-auto">
@@ -39,49 +48,89 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
           />
         </div>
         <div className="w-full flex justify-between gap-5 py-5">
-          <div className="w-full max-w-screen-xl ">
-            <h1 className={`text-6xl font-bold  ${ubuntu.className}`}>
-              {party.title}
-            </h1>
-            <div className=" py-5 flex  items-center gap-5 flex-wrap">
-              <Tooltip
-                color="primary"
-                content={<p className="p-2 text-base ">{party.location} </p>}
-                offset={4}
-                placement="bottom"
-                showArrow={true}
-              >
-                <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
-                  <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-500 text-xl">
-                    <GrLocation />
-                  </span>
-                  {party.location.length > 30
-                    ? `${party.location.slice(0, 30)}...`
-                    : party.location}
-                </p>
-              </Tooltip>
+          <div className="w-full max-w-screen-xl  space-y-10">
+            <div>
+              <h1 className={`text-6xl font-bold  ${ubuntu.className}`}>
+                {party.title}
+              </h1>
+              <div className=" py-5 flex  items-center gap-5 flex-wrap">
+                <Tooltip
+                  color="primary"
+                  content={<p className="p-2 text-base ">{party.location} </p>}
+                  offset={4}
+                  placement="bottom"
+                  showArrow={true}
+                >
+                  <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
+                    <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-500 text-xl">
+                      <GrLocation />
+                    </span>
+                    {party.location.length > 30
+                      ? `${party.location.slice(0, 30)}...`
+                      : party.location}
+                  </p>
+                </Tooltip>
 
-              <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
-                <span className="p-1.5 rounded-lg bg-sky-500/20 text-sky-500 text-xl">
-                  <LuCalendarRange />
-                </span>
-                {party.date}
-              </p>
-              <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
-                <span className="p-1.5 rounded-lg bg-yellow-500/20 text-yellow-500 text-xl">
-                  <GrAlarm />
-                </span>
-                {party.time}
+                <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
+                  <span className="p-1.5 rounded-lg bg-sky-500/20 text-sky-500 text-xl">
+                    <LuCalendarRange />
+                  </span>
+                  {party.date}
+                </p>
+                <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
+                  <span className="p-1.5 rounded-lg bg-yellow-500/20 text-yellow-500 text-xl">
+                    <GrAlarm />
+                  </span>
+                  {party.time}
+                </p>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <h1 className={`${ubuntu.className} text-3xl font-semibold`}>
+                Hosted By
+              </h1>
+              <div className="w-full max-w-screen-sm mr-auto py-5 px-12  border-2 border-white/10 flex items-center justify-between rounded-xl bg-white/5 ">
+                <div className="flex items-center gap-5">
+                  <Avatar
+                    className="w-28 h-28 text-large"
+                    src="https://i.pravatar.cc/150?u=a04258114e29026708c"
+                  />
+                  <h1 className="text-3xl font-bold">Nishant rajput</h1>
+                </div>
+
+                <div className="text-center bg-primary p-4 rounded-lg">
+                  <h1 className="text-5xl font-bold tracking-wide">12</h1>
+                  <p>Parties Hosted</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-5" >
+              <h1 className={`${ubuntu.className} text-3xl font-semibold`}>About the Party</h1>
+              <p className="text-lg font-medium">
+                **Event Description: The Sufi Soirée – A Night of Soulful Melodies**
+
+                Step into an enchanting world of music, rhythm, and devotion at **The Sufi Soirée**, a late-night celebration of timeless Qawwali and mystical vibes. Immerse yourself in the soulful symphonies of talented artists as they weave magic with their voices, taking you on a spiritual and melodic journey.
+
+                Under the twinkling stars, surrounded by a cozy ambiance, this evening promises a perfect blend of tradition and togetherness. Sway to the powerful rhythms, lose yourself in the heartfelt lyrics, and let the music awaken your soul.
+
+                Whether you’re a Sufi music aficionado or someone looking for an unforgettable cultural experience, **The Sufi Soirée** is where melodies, conversations, and shared moments come alive.
+
+                🎵 **Highlights**:
+                - **Live Qawwali Performance:** Featuring renowned artists and their captivating renditions.
+                - **Interactive Singing Circle:** Join in to add your voice to the magic.
+                - **Exquisite Food & Drinks:** Enjoy traditional delicacies and signature cocktails.
+                - **Cozy Vibes:** Cushions, fairy lights, and an ambiance perfect for soulful nights.
+
+                Get ready for a night where hearts beat to the rhythm of Sufi music. **Reserve your spot now and let the melodies take over!**
               </p>
             </div>
-            <p className="text-9xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perferendis ex architecto eum. Dolorum aliquam, ea itaque
-              molestias animi, asperiores rerum natus beatae aspernatur illo
-              possimus laudantium fugit eveniet quidem est.
-            </p>
+
           </div>
           <PriceCard price={party.price} />
+        </div>
+        <BannerCarousel carouselBannerImages={images} />
+        <div>
+          <h1 className="text-4xl font-semibold">Discover Similar House Parties</h1>
         </div>
       </div>
       <div />

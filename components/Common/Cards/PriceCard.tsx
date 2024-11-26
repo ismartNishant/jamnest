@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import { Button } from "@nextui-org/button";
 import React, { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
@@ -6,7 +6,7 @@ import { IoTicketOutline } from "react-icons/io5";
 import { Tooltip } from "@nextui-org/tooltip";
 import { IoMdHelpCircleOutline } from "react-icons/io";
 import CouponModal from "../Modal/CouponModal";
-
+import { TbRosetteDiscount } from "react-icons/tb";
 
 interface PriceCardProps {
     price: string;
@@ -18,8 +18,42 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
 
     const pricePerPerson = parseFloat(price);
     const platformFee = 3; // Fixed platform fee
-    const taxes = 11; // Fixed taxes
-    const commissionRate = 0.05; // 5% commission
+    const taxes = 6; // Fixed taxes
+    const commissionRate = 0.03;
+
+    // Coupon state
+    const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);
+    const [discountAmount, setDiscountAmount] = useState<number>(0);
+
+    const couponList = [
+        { code: "DISCOUNT10", description: "10% off on total price", value: 10, type: "percent" }, // 10% discount
+        { code: "BOONZA", description: "Get ₹50 off", value: 50, type: "fixed" }, // ₹50 off
+        { code: "WELCOME100", description: "Get ₹100 off", value: 100, type: "fixed" }, // ₹100 off
+    ];
+
+    // Apply coupon logic
+    const applyCoupon = (code: string) => {
+        const coupon = couponList.find((c) => c.code === code);
+        if (coupon) {
+            setAppliedCoupon(coupon.code);
+
+            // Calculate discount based on the coupon type
+            let discount = 0;
+            if (coupon.type === "percent") {
+                discount = (pricePerPerson * count * coupon.value) / 100; // Percentage discount
+            } else if (coupon.type === "fixed") {
+                discount = coupon.value; // Fixed discount
+            }
+
+            setDiscountAmount(discount);
+        }
+    };
+
+    // Remove coupon logic
+    const removeCoupon = () => {
+        setAppliedCoupon(null);
+        setDiscountAmount(0);
+    };
 
     // Increase count function
     const increaseCount = () => {
@@ -38,16 +72,19 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
     // Subtotal calculation based on the number of guests
     const subtotal = pricePerPerson * count;
 
-    // Commission calculation (5% of the subtotal)
+    // Commission calculation (3% of the subtotal)
     const commission = subtotal * commissionRate;
 
-    // Total calculation
-    const total = subtotal + platformFee + taxes + commission;
+    // Calculate discounted subtotal
+    const discountedSubtotal = subtotal - discountAmount;
+
+    // Total calculation after applying coupon
+    const total = discountedSubtotal + platformFee + taxes + commission;
 
     return (
         <div className="w-full relative max-w-sm">
             <div className="border-2 border-primary bg-gradient-to-br from-primary/50 to-secondary/20 rounded-2xl transition-transform transform hover:scale-105 sticky top-20">
-                <div className="p-5 space-y-5">
+                <div className="p-5 space-y-3">
                     <h1 className="text-5xl font-bold tracking-wide">
                         ₹{price}
                         <span className="text-lg text-gray-200 font-semibold tracking-normal">
@@ -55,7 +92,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
                         </span>
                     </h1>
 
-                    <div className="bg-black/20 rounded-lg p-3">
+                    <div className="bg-black/20 rounded-lg p-2.5">
                         <div className="flex items-center justify-between">
                             <h2 className="text-xl font-semibold">No. of Guests</h2>
                             <div className="flex items-center space-x-4">
@@ -80,26 +117,27 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
                                 </Button>
                             </div>
                         </div>
-                        <p className="text-base text-gray-300 font-medium">
+                        <p className="text-sm text-gray-300 font-medium">
                             Max limit: {maxLimit} guests
                         </p>
                     </div>
                     <div className="space-y-1">
-                        <p className="flex justify-between gap-4 items-center tracking-wide text-lg font-medium text-gray-2">
-                            Sub total ( ₹{price} X {count} ) <span> ₹{subtotal}</span>
+                        <p className="flex justify-between gap-4 items-center tracking-wide text-base font-medium text-gray-2">
+                            Sub total ( ₹{price} X {count} ) <span className="tracking-wide"> ₹{subtotal}</span>
                         </p>
-                        <div className="flex justify-between gap-4 items-center tracking-wide text-lg font-medium text-gray-2">
+
+                        <div className="flex justify-between gap-4 items-center text-gray-2">
                             <Tooltip
                                 content={
                                     <div className="space-y-1.5 p-2.5">
                                         <p className="flex justify-between gap-4 items-center tracking-wide text-sm font-medium text-gray-2">
-                                            Platform fee <span>₹{platformFee}</span>
+                                            Platform fee <span>₹ {platformFee}</span>
                                         </p>
                                         <p className="flex justify-between gap-4 items-center tracking-wide text-sm font-medium text-gray-2">
-                                            Taxes <span>₹{taxes}</span>
+                                            Taxes <span>₹ {taxes}</span>
                                         </p>
                                         <p className="flex justify-between gap-4 items-center tracking-wide text-sm font-medium text-gray-2">
-                                            Commission (5%) <span>₹{commission.toFixed(2)}</span>
+                                            Commission (3%) <span>₹ {commission.toFixed(2)}</span>
                                         </p>
                                     </div>
                                 }
@@ -108,18 +146,48 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
                                 placement="bottom"
                                 showArrow={true}
                             >
-                                <span className="flex items-center gap-1">
+                                <span className="flex items-center gap-1 tracking-wide text-base font-medium">
                                     Additional charges <IoMdHelpCircleOutline />{" "}
                                 </span>
                             </Tooltip>
-                            <span>₹{platformFee + taxes + commission.toFixed(2)}</span>
+                            <span>₹ {(platformFee + taxes + commission).toFixed(2)}</span>
                         </div>
+                        {appliedCoupon && (
+                            <div className=" flex justify-between items-center">
+                                <h3 className="text-base ">
+                                    Code ( {appliedCoupon} )
+                                </h3>
+                                <span className="text-base font-medium ">
+                                    - ₹ {discountAmount.toFixed(2)}
+                                </span>
+                            </div>
+                        )}
                     </div>
-                        <CouponModal />
-                    <div className="bg-white/15 p-4 rounded-md">
-                        <div className="flex justify-between gap-5 items-center text-2xl font-semibold mb-4">
+                    <div className="space-y-1">
+                        {!appliedCoupon && (
+                            <CouponModal onApplyCoupon={applyCoupon} totalPrice={total} />
+                        )}
+                        {appliedCoupon && (
+                            <div className="p-2 bg-emerald-500/70 flex items-center justify-between gap-4 rounded-md">
+                                <h3 className="text-base font-semibold flex items-center gap-1 "><TbRosetteDiscount className="text-2xl text-emerald-400" /> {appliedCoupon}</h3>
+                                <Button
+                                    className="px-4"
+                                    size="sm"
+                                    color="danger"
+                                    variant="shadow"
+                                    onClick={removeCoupon}
+                                >
+                                    Remove Coupon
+                                </Button>
+                                
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="bg-white/15 p-3 rounded-md">
+                        <div className="flex justify-between gap-5 items-center text-2xl font-semibold mb-2">
                             <h4>Total</h4>
-                            <h4>₹{total.toFixed(2)}</h4>
+                            <h4>₹ {total.toFixed(2)}</h4>
                         </div>
                         <Button
                             className="w-full font-semibold uppercase text-xl"
