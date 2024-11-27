@@ -147,7 +147,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
                                 showArrow={true}
                             >
                                 <span className="flex items-center gap-1 tracking-wide text-base font-medium">
-                                    Additional charges <IoMdHelpCircleOutline />{" "}
+                                    Additional charges <IoMdHelpCircleOutline className="text-xl" />
                                 </span>
                             </Tooltip>
                             <span>₹ {(platformFee + taxes + commission).toFixed(2)}</span>

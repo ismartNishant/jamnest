@@ -28,7 +28,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full relative overflow-hidden  backdrop-blur-xl">
+    <footer className="w-full relative overflow-hidden  backdrop-blur-xl ">
       <div
         className=" bg-blend-overlay w-full h-0.5 absolute left-0 top-0 right-0 "
         style={{
