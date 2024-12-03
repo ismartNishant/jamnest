@@ -23,7 +23,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
 
     return (
         <Carousel
-            className="w-full mx-auto rounded-xl my-8 lg:my-16"
+            className="w-full mx-auto rounded-xl my-4 lg:my-16"
             plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
@@ -31,7 +31,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
             <CarouselContent>
                 {carouselBannerImages.map((image, index) => (
                     <CarouselItem key={index} className="cursor-pointer md:basis-1/2 lg:basis-1/3">
-                        <div className="relative w-full h-56">
+                        <div className="relative w-full h-40 lg:h-56">
                             <Image
                                 fill
                                 objectFit="cover"

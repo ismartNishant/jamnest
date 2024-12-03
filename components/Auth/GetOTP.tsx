@@ -146,24 +146,27 @@ const [isTimerActive, setIsTimerActive] = React.useState(false); // To track if 
                 color="primary"
                 radius="full"
                 variant="shadow"
-                onPress={onVerificationOpen}
+                onClick={onVerificationOpen}
             >
                 <FaRegUser />
             </Button>
             <Modal
                 backdrop="blur"
                 className="bg-secondary-900 border-2 border-white/10 "
+                classNames={{
+                    closeButton: 'bg-primary/20 text-white hover:bg-primary'
+                }}
                 isDismissable={false}
                 isOpen={isVerificationOpen}
-                placement="top-center"
+                placement="center"
                 size="4xl"
                 onOpenChange={onVerificationOpenChange}
             >
-                <ModalContent className="py-5">
+                <ModalContent className="p-4 pt-10 lg:p-5 ">
                     {(onClose) => (
                         <>
-                            <ModalBody className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center">
-                                <div className="relative w-full h-72 lg:h-96 overflow-hidden rounded-3xl shadow-white">
+                            <ModalBody className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center p-0">
+                                <div className="relative w-full h-56 lg:h-96 overflow-hidden rounded-3xl shadow-white">
                                     <video
                                         autoPlay
                                         loop
@@ -175,7 +178,7 @@ const [isTimerActive, setIsTimerActive] = React.useState(false); // To track if 
                                     </video>
                                 </div>
                                 <div className="flex flex-col justify-center">
-                                    <h1 className="font-HaloDek text-6xl tracking-wider text-center pb-4">
+                                    <h1 className="font-HaloDek text-5xl lg:text-6xl tracking-wider text-center pb-4">
                                         JamNest
                                     </h1>
 
@@ -186,7 +189,7 @@ const [isTimerActive, setIsTimerActive] = React.useState(false); // To track if 
                                     >
                                         {!otpStage ? (
                                             <>
-                                                <h1 className={`${ubuntu.className} text-2xl font-normal uppercase pb-5 text-center`}>
+                                                <h1 className={`${ubuntu.className} text-xl lg:text-2xl font-normal uppercase lg:pb-5 text-center`}>
                                                     Verify your mobile number
                                                 </h1>
                                                 <Input
@@ -245,7 +248,7 @@ const [isTimerActive, setIsTimerActive] = React.useState(false); // To track if 
                                             // OTP stage - render OTP input and verify button
                                             <>
                                                 <div className=" space-y-0.5 ">
-                                                    <h1 className={`${ubuntu.className} text-3xl font-normal uppercase pb-5 text-center`}>
+                                                    <h1 className={`${ubuntu.className} text-xl lg:text-2xl font-normal uppercase lg:pb-5 text-center`}>
                                                         OTP Verification
                                                     </h1>
                                                     <p>

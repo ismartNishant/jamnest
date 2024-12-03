@@ -80,8 +80,8 @@ const Parties = () => {
                         objectFit="cover"
                         src={party.image}
                       />
-                      <div className="absolute  rounded-lg w-full h-auto bottom-0 left-0 bg-secondary/50 hover:backdrop-blur-sm  bg-opacity-80 text-white  ">
-                        <div className="bg-black/70 p-3 w-full h-full rounded-lg flex flex-col gap-1 lg:gap-2">
+                      <div className="absolute   w-full h-auto bottom-0 left-0 bg-secondary/50 hover:backdrop-blur-sm  bg-opacity-80 text-white  ">
+                        <div className="bg-black/70 p-2 lg:p-3 w-full h-full  flex flex-col gap-1 lg:gap-2">
                           <h1 className="text-2xl lg:text-3xl font-semibold">
                             {party.title.length > 28
                               ? `${party.title.substring(0, 28)}...`
@@ -100,8 +100,8 @@ const Parties = () => {
                             </div>
                             <div className="flex gap-1 items-center ">
                               <GrLocation />
-                              {party.location.length > 26
-                                ? `${party.location.substring(0, 26)}...`
+                              {party.location.length > 20
+                                ? `${party.location.substring(0, 20)}...`
                                 : party.location}
                             </div>
                           </div>

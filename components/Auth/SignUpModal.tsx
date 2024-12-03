@@ -84,20 +84,24 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onOpenChange }) => {
 
     return (
         <Modal
-            id="signupmodal"
-
             backdrop="blur"
             className="bg-secondary-900 border-2 border-white/10"
+            classNames={{
+                closeButton: 'bg-primary/20 text-white hover:bg-primary'
+            }
+
+            }
+            id="signupmodal"
             isDismissable={false}
             isOpen={isOpen}
-            placement="top-center"
+            placement="center"
             size="4xl"
             onOpenChange={onOpenChange}
         >
-            <ModalContent className="py-5">
+            <ModalContent className="">
                 {(onClose) => (
-                    <ModalBody className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center">
-                        <div className="relative w-full h-full overflow-hidden rounded-3xl shadow-white">
+                    <ModalBody className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-5 justify-center p-4 pt-10 lg:p-5">
+                        <div className="relative w-full min-h-44 h-full overflow-hidden rounded-xl lg:rounded-3xl shadow-white">
                             <video
                                 autoPlay
                                 loop
@@ -108,14 +112,22 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onOpenChange }) => {
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                        <div className="flex flex-col justify-center space-y-4">
-                            <h1
-                                className={`${ubuntu.className} font-medium text-4xl uppercase tracking-wide`}
+                        <div className="flex flex-col justify-center space-y-3 lg:space-y-4">
+                            <div className="text-center">
+                                <h1
+                                    className={`${ubuntu.className} font-medium text-2xl   lg;text-4xl uppercase tracking-wide`}
+                                >
+                                    Sign Up
+                                </h1>
+                                <p className="text-gray-4">Your Party, Your Rules, Our Expertise.</p>
+                            </div>
+
+                            <form
+                                className="space-y-4"
+                                id="Signup-form"
+                                name="signup-form"
+                                onSubmit={handleFormSubmit}
                             >
-                                Sign Up
-                            </h1>
-                            <p>Your Party, Your Rules, Our Expertise.</p>
-                            <form name="signup-form" id="Signup-form" className="space-y-4" onSubmit={handleFormSubmit}>
                                 <Input
                                     isClearable
                                     isRequired
@@ -170,9 +182,9 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onOpenChange }) => {
                                 <Select
                                     isRequired
                                     required
-                                    label='City'
-                                     name="select-city"
-                                     id="City"
+                                    id="City"
+                                    label="City"
+                                    name="select-city"
                                     placeholder="Select city"
                                     selectedKeys={[city]}
                                     variant="bordered"
@@ -187,8 +199,8 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onOpenChange }) => {
                                 <Select
                                     isRequired
                                     required
-                                    label='Gender'
                                     id="Gender"
+                                    label="Gender"
                                     name="Gender"
                                     placeholder="Select gender"
                                     value={gender} // Corrected: Use `value` for gender selection

@@ -1,19 +1,45 @@
-.about-party-content h1{
- font-size: 1.6rem ;
- color: #FF2883;
- font-weight: 600;
+.about-party-content h1 {
+    font-size: 1.6rem;
+    color: #FF2883;
+    font-weight: 600;
 }
 
 .about-party-content p,
-.about-party-content li{
+.about-party-content li {
     font-size: 1.2rem;
     font-weight: 300;
 }
+
 .about-party-content ol,
-.about-party-content ul{
- list-style:decimal;
- padding-left: 1.5rem;
+.about-party-content ul {
+    list-style: decimal;
+    padding-left: 1.5rem;
 }
-.about-party-content li{
+
+.about-party-content li {
     padding: .5rem 0rem;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+
+    /* Tablet and smaller devices */
+    .about-party-content h1 {
+        font-size: 1.4rem;
+    }
+
+    .about-party-content p,
+    .about-party-content li {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* Mobile devices */
+    .about-party-content h1 {
+        font-size: 1.2rem;
+    }
+
+ 
 }

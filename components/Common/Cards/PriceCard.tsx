@@ -82,7 +82,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
     const total = discountedSubtotal + platformFee + taxes + commission;
 
     return (
-        <div className="w-full relative max-w-sm">
+        <div className="w-full relative max-w-sm hidden lg:block">
             <div className="border-2 border-primary bg-gradient-to-br from-primary/50 to-secondary/20 rounded-2xl transition-transform transform hover:scale-105 sticky top-20">
                 <div className="p-5 space-y-3">
                     <h1 className="text-5xl font-bold tracking-wide">

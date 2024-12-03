@@ -25,19 +25,19 @@ const ubuntu = Ubuntu({
 
 const PartyDetailFaqs = () => {
   const features = [
-    { text: "Smoking is Allowed", icon: <FaSmoking className="text-2xl" /> },
-    { text: "No Smoking Allowed", icon: <FaBanSmoking className="text-2xl" /> },
-    { text: "Music Available", icon: <GiMusicSpell className="text-2xl" /> },
-    { text: "Veg Food Available", icon: <GiHotMeal className="text-2xl" /> },
-    { text: "Non-veg Food Available ", icon: <GiChickenOven className="text-2xl" /> },
-    { text: "Pets Allowed", icon: <MdPets className="text-2xl" /> },
-    { text: "Soft Drinks", icon: <BiDrink className="text-2xl" /> },
-    { text: "Alcohol Served Limited", icon: <GiWineBottle className="text-2xl" /> },
-    { text: "Parking Available", icon: <LuParkingSquare className="text-2xl" /> },
-    { text: "No Parking Available", icon: <LuParkingSquareOff className="text-2xl" /> },
-    { text: "Outside Food order", icon: <RiEBike2Fill className="text-2xl" /> },
-    { text: "Elevator Available", icon: <TbElevator className="text-2xl" /> },
-    { text: "No Elevator Available", icon: <TbElevatorOff className="text-2xl" /> },
+    { text: "Smoking is Allowed", icon: <FaSmoking className="text-xl lg:text-2xl" /> },
+    { text: "No Smoking Allowed", icon: <FaBanSmoking className="text-xl lg:text-2xl" /> },
+    { text: "Music Available", icon: <GiMusicSpell className="text-xl lg:text-2xl" /> },
+    { text: "Veg Food Available", icon: <GiHotMeal className="text-xl lg:text-2xl" /> },
+    { text: "Non-veg Food Available ", icon: <GiChickenOven className="text-xl lg:text-2xl" /> },
+    { text: "Pets Allowed", icon: <MdPets className="text-xl lg:text-2xl" /> },
+    { text: "Soft Drinks", icon: <BiDrink className="text-xl lg:text-2xl" /> },
+    { text: "Alcohol Served Limited", icon: <GiWineBottle className="text-xl lg:text-2xl" /> },
+    { text: "Parking Available", icon: <LuParkingSquare className="text-xl lg:text-2xl" /> },
+    { text: "No Parking Available", icon: <LuParkingSquareOff className="text-xl lg:text-2xl" /> },
+    { text: "Outside Food order", icon: <RiEBike2Fill className="text-xl lg:text-2xl" /> },
+    { text: "Elevator Available", icon: <TbElevator className="text-xl lg:text-2xl" /> },
+    { text: "No Elevator Available", icon: <TbElevatorOff className="text-xl lg:text-2xl" /> },
   ];
 
   return (
@@ -45,10 +45,11 @@ const PartyDetailFaqs = () => {
       <Accordion
         className='flex flex-col gap-5 p-0'
         itemClasses={{
-          base: 'text-white bg-white/5 border-2 border-white/10 p-4 ',
-          title: `${ubuntu.className} text-4xl uppercase font-semibold`,
-          indicator: 'text-primary text-4xl  p-1 data-[open=true]:-rotate-90 ',
-          trigger: 'flex items-start'
+          base: 'text-white bg-white/5 border-2 border-white/10 lg:p-4 p-3',
+          title: `${ubuntu.className} text-xl lg:text-4xl uppercase font-semibold `,
+          indicator: 'text-primary text-2xl lg:text-4xl  data-[open=true]:-rotate-90  ',
+          trigger: 'flex items-start py-0',
+          content:""
         }}
         selectionMode='multiple'
         variant='splitted'
@@ -64,10 +65,10 @@ const PartyDetailFaqs = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="rounded-md p-2 bg-white/5 flex text-lg items-center gap-2 border-2 border-white/10"
+                className="rounded-md p-1 lg:p-2 bg-white/5 flex text-xs lg:text-lg items-center gap-1 lg:gap-2 border-2 border-white/10"
               >
                 
-                <div className='bg-primary rounded-md p-1'>{feature.icon}</div>
+                <div className='bg-primary rounded-md  p-1'>{feature.icon}</div>
                 <span>{feature.text}</span>
               </div>
             ))}
@@ -80,7 +81,7 @@ const PartyDetailFaqs = () => {
           }
           title={`House Rules`}
         >
-          <ol className='list-decimal list-inside text-xl font-medium tracking-wide space-y-4'>
+          <ol className='list-decimal list-inside  text-base lg:text-xl font-medium tracking-wide space-y-2 lg:space-y-4'>
             <li>Respect the property and other guests</li>
             <li>Drink Responsibly</li>
             <li>Help the host keep the house clean</li>
@@ -95,7 +96,7 @@ const PartyDetailFaqs = () => {
           }
           title={`How it Works`}
         >
-          <ol className='  list-inside text-xl font-medium tracking-wide space-y-4'>
+          <ol className='  list-inside text-base lg:text-xl font-medium tracking-wide space-y-2 lg:space-y-4'>
             <li className=''>
               <span className='font-bold text-primary pr-2'> Step 1 : </span>
               Send a request to attend the house party.
@@ -124,7 +125,7 @@ const PartyDetailFaqs = () => {
           }
           title={`cancellation policy`}
         >
-          <ol className='list-upper-alpha list-inside text-xl font-medium tracking-wide space-y-4'>
+          <ol className='list-upper-alpha list-inside text-base lg:text-xl font-medium tracking-wide space-y-2 lg:space-y-4'>
             <li>
               <span className=' font-semibold'>100% refund</span>
               <ol className='list-roman list-inside mt-2 space-y-2 pl-6 text-gray-4'>

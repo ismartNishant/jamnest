@@ -101,13 +101,13 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
             src={party.image}
           />
         </div>
-        <div className="w-full flex justify-between gap-10 py-5">
-          <div className="w-full max-w-screen-xl space-y-10">
-            <div>
-              <h1 className={`text-5xl font-bold  ${ubuntu.className}`}>
+        <div className="w-full flex justify-between gap-10 py-2 lg:py-5">
+          <div className="w-full max-w-screen-xl space-y-4 lg:space-y-10">
+            <div className="space-y-2 lg:space-y-5">
+              <h1 className={`text-2xl lg:text-5xl font-bold  ${ubuntu.className}`}>
                 {party.title}
               </h1>
-              <div className=" py-5 flex  items-center gap-5 flex-wrap">
+              <div className=" flex  items-center gap-2.5 lg:gap-5 flex-wrap">
                 <Tooltip
                   color="primary"
                   content={<p className="p-2 text-base ">{party.location} </p>}
@@ -115,8 +115,8 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
                   placement="bottom"
                   showArrow={true}
                 >
-                  <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
-                    <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-500 text-xl">
+                  <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
+                    <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-500 ">
                       <GrLocation />
                     </span>
                     {party.location.length > 30
@@ -125,46 +125,46 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
                   </p>
                 </Tooltip>
 
-                <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
-                  <span className="p-1.5 rounded-lg bg-sky-500/20 text-sky-500 text-xl">
+                <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
+                  <span className="p-1.5 rounded-lg bg-sky-500/20 text-sky-500 ">
                     <LuCalendarRange />
                   </span>
                   {party.date}
                 </p>
-                <p className="flex items-center gap-2 text-xl bg-white/10 p-2 rounded-lg border-2 border-white/10">
-                  <span className="p-1.5 rounded-lg bg-yellow-500/20 text-yellow-500 text-xl">
+                <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
+                  <span className="p-1.5 rounded-lg bg-yellow-500/20 text-yellow-500 ">
                     <GrAlarm />
                   </span>
                   {party.time}
                 </p>
               </div>
             </div>
-            <div className="space-y-5">
-              <h1 className={`${ubuntu.className} text-4xl font-semibold`}>
+            <div className="space-y-2 lg:space-y-5">
+              <h1 className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}>
                 Hosted By
               </h1>
-              <div className="w-full max-w-screen-md mr-auto py-5 px-10  border-2 border-white/10 flex items-center justify-between rounded-xl bg-white/5 ">
-                <div className="flex items-center gap-5">
+              <div className="w-full max-w-screen-md mr-auto lg:py-5 py-2 p-2 lg:px-10  border-2 border-white/10 flex items-center justify-between rounded-xl bg-white/5 ">
+                <div className="flex items-center gap-3 lg:gap-5">
                   <Link href={`/user/${party.userId}`}>
                     <Avatar
-                      className="w-28 h-28 text-large border-2 border-white/20 rounded-[35px] hover:scale-95 duration-300 ease-in-out"
+                      className="w-14 h-14 lg:w-28 lg:h-28 text-large border-2 border-white/20  lg:rounded-[35px] hover:scale-95 duration-300 ease-in-out"
                       src="https://i.pravatar.cc/150?u=a04258114e29026708c"
                     />
                   </Link>
-                  <h1 className="text-3xl font-semibold">Nishant rajput</h1>
+                  <h1 className="text-xl lg:text-3xl font-semibold">Nishant rajput</h1>
                 </div>
 
-                <div className="text-center bg-primary p-4 rounded-md">
-                  <h1 className="text-5xl font-bold tracking-wide">12</h1>
-                  <p className="text-base">Parties Hosted</p>
+                <div className="text-center bg-primary p-2 lg:p-4 rounded-lg">
+                  <h1 className="text-3xl lg:text-5xl font-bold tracking-wide">12</h1>
+                  <p className="text-xs lg:text-base">Parties Hosted</p>
                 </div>
               </div>
             </div>
-            <div className="space-y-5">
-              <h1 className={`${ubuntu.className} text-4xl font-semibold`}>
+            <div className="space-y-2 lg:space-y-5">
+              <h1 className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}>
                 About the Party
               </h1>
-              <div className="about-party-content flex flex-col gap-4">{parse(AboutPartContent)}</div>
+              <div className="about-party-content flex flex-col gap-2 lg:gap-4">{parse(AboutPartContent)}</div>
             </div>
             <PartyDetailFaqs />
           </div>
@@ -172,7 +172,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
         </div>
         <BannerCarousel carouselBannerImages={images} />
         <div>
-          <h1 className="text-4xl font-semibold">
+          <h1 className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}>
             Discover Similar House Parties
           </h1>
         </div>

@@ -60,17 +60,17 @@ const Faqs = () => {
     }, []);
 
     return (
-        <div className="w-full md:px-8 xl:px-24 py-12 xl:pt-24 px-4">
-            <HeadingOne className="text-3xl lg:text-6xl  font-bold uppercase text-center pb-10">
+        <div className="w-full md:px-8 lg:p-20  p-4 ">
+            <HeadingOne className="text-3xl lg:text-6xl  font-bold uppercase text-center pb-5 lg:pb-10">
                 FAQs
             </HeadingOne>
 
-            <div className="flex  gap-20  items-start mx-auto w-full">
+            <div className="flex gap-5 lg:gap-20  items-start mx-auto w-full flex-col lg:flex-row">
                 <div className="max-w-md flex justify-center items-center w-full ">
                     <motion.div
                         key={currentImage}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="w-full h-96 rounded-lg overflow-hidden shadow-md relative"
+                        className="w-full  h-64 lg:h-96 rounded-lg overflow-hidden shadow-md relative"
                         exit={{ opacity: 0 }}
                         initial={{ opacity: 0 }}
                         transition={{ duration: 0.8 }}
@@ -85,13 +85,14 @@ const Faqs = () => {
                 </div>
                 <div className="  w-full mx-auto">
                     <Accordion
-                        className="gap-4  flex flex-col"
+                        className="gap-4 lg:gap-8  flex flex-col"
                         defaultExpandedKeys={["0"]}
                         itemClasses={{
-                            base: "text-white   bg-transparent",
-                            title: `${ubuntu.className} text-2xl uppercase font-semibold`,
+                            base: "text-white bg-transparent ",
+                            title: `${ubuntu.className} text-lg lg:text-2xl uppercase font-semibold `,
                             indicator: "text-primary text-3xl  data-[open=true]:-rotate-90 ",
-                            trigger: "  flex items-start  ",
+                            trigger: " flex items-start py-1 ",
+                            content:'pt-1'
                         }}
                         selectionMode="multiple"
                         variant='light'
@@ -99,6 +100,7 @@ const Faqs = () => {
                     >
                         {faqData.map((faq, index) => (
                             <AccordionItem
+                          
                                 key={index}
                                 aria-label={`FAQ ${index + 1}`}
                                 indicator={({ isOpen }) =>
@@ -106,7 +108,7 @@ const Faqs = () => {
                                 }
                                 title={faq.question}
                             >
-                                <p className="text-lg font-light text-gray-4">
+                                <p className="text-sm lg:text-lg font-light text-gray-4">
                                     {faq.answer}
                                 </p>
                             </AccordionItem>
