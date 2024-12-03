@@ -47,10 +47,13 @@ const Footer = () => {
                 JamNest
               </Link>
               <Fade>
-                <p className="py-4 text-base  lg:max-w-xs text-left">
-                  At TJamNest, Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Assumenda labore et amet obcaecati pariatur
-                  ips.
+                <p
+                  className="tracking-wider text-sm
+                  lg:max-w-xs text-left text-gray-3"
+                >
+                  Host your own unforgettable party or join others in the
+                  ultimate social experience. Find, join, or create events that
+                  bring people together for moments worth celebrating!
                 </p>
               </Fade>
             </Fade>

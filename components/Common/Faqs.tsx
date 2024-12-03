@@ -3,10 +3,9 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import Image from "next/image";
-import { FaChevronDown } from "react-icons/fa";
 import { Ubuntu } from "next/font/google";
-import { FaChevronRight } from "react-icons/fa6";
 import { HeadingOne } from "./Headings/HeadingOne";
+import { LiaChevronRightSolid, LiaChevronDownSolid } from 'react-icons/lia'
 
 const ubuntu = Ubuntu({
     subsets: ["latin"],
@@ -90,8 +89,8 @@ const Faqs = () => {
                         defaultExpandedKeys={["0"]}
                         itemClasses={{
                             base: "text-white   bg-transparent",
-                            title: `${ubuntu.className} text-3xl uppercase font-semibold`,
-                            indicator: "text-white text-2xl bg-primary rounded-sm p-1 data-[open=true]:-rotate-90 ",
+                            title: `${ubuntu.className} text-2xl uppercase font-semibold`,
+                            indicator: "text-primary text-3xl  data-[open=true]:-rotate-90 ",
                             trigger: "  flex items-start  ",
                         }}
                         selectionMode="multiple"
@@ -103,11 +102,11 @@ const Faqs = () => {
                                 key={index}
                                 aria-label={`FAQ ${index + 1}`}
                                 indicator={({ isOpen }) =>
-                                    isOpen ? <FaChevronRight /> : <FaChevronDown />
+                                    isOpen ? <LiaChevronRightSolid /> : <LiaChevronDownSolid />
                                 }
                                 title={faq.question}
                             >
-                                <p className="text-lg tracking-wide text-gray-4">
+                                <p className="text-lg font-light text-gray-4">
                                     {faq.answer}
                                 </p>
                             </AccordionItem>

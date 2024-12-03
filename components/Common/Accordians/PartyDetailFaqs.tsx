@@ -25,19 +25,19 @@ const ubuntu = Ubuntu({
 
 const PartyDetailFaqs = () => {
   const features = [
-    { text: "Smoking is Allowed", icon: <FaSmoking className="text-3xl" /> },
-    { text: "No Smoking Allowed", icon: <FaBanSmoking className="text-3xl" /> },
-    { text: "Music Available", icon: <GiMusicSpell className="text-3xl" /> },
-    { text: "Veg Food Available", icon: <GiHotMeal className="text-3xl" /> },
-    { text: "Non-veg Food Available ", icon: <GiChickenOven className="text-3xl" /> },
-    { text: "Pets Allowed", icon: <MdPets className="text-3xl" /> },
-    { text: "Soft Drinks", icon: <BiDrink className="text-3xl" /> },
-    { text: "Alcohol Served Limited", icon: <GiWineBottle className="text-3xl" /> },
-    { text: "Parking Available", icon: <LuParkingSquare className="text-3xl" /> },
-    { text: "No Parking Available", icon: <LuParkingSquareOff className="text-3xl" /> },
-    { text: "Outside Food order", icon: <RiEBike2Fill className="text-3xl" /> },
-    { text: "Elevator Available", icon: <TbElevator className="text-3xl" /> },
-    { text: "No Elevator Available", icon: <TbElevatorOff className="text-3xl" /> },
+    { text: "Smoking is Allowed", icon: <FaSmoking className="text-2xl" /> },
+    { text: "No Smoking Allowed", icon: <FaBanSmoking className="text-2xl" /> },
+    { text: "Music Available", icon: <GiMusicSpell className="text-2xl" /> },
+    { text: "Veg Food Available", icon: <GiHotMeal className="text-2xl" /> },
+    { text: "Non-veg Food Available ", icon: <GiChickenOven className="text-2xl" /> },
+    { text: "Pets Allowed", icon: <MdPets className="text-2xl" /> },
+    { text: "Soft Drinks", icon: <BiDrink className="text-2xl" /> },
+    { text: "Alcohol Served Limited", icon: <GiWineBottle className="text-2xl" /> },
+    { text: "Parking Available", icon: <LuParkingSquare className="text-2xl" /> },
+    { text: "No Parking Available", icon: <LuParkingSquareOff className="text-2xl" /> },
+    { text: "Outside Food order", icon: <RiEBike2Fill className="text-2xl" /> },
+    { text: "Elevator Available", icon: <TbElevator className="text-2xl" /> },
+    { text: "No Elevator Available", icon: <TbElevatorOff className="text-2xl" /> },
   ];
 
   return (

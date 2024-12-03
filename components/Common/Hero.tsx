@@ -18,7 +18,7 @@ const Hero = () => {
             Celebrate Together, <span className={`${ubuntu.className} text-transparent text-5xl  font-bold lg:text-9xl bg-clip-text bg-gradient-to-r from-primary to-secondary`}> Anywhere! </span>
             <Image src="/images/icons/confetti2.svg" className="absolute  top-0  right-32 hidden md:block" alt="icon-img" width={100} height={100} />
           </h1>
-          <p className="text-lg lg:text-xl tracking-wider lg:max-w-screen-md w-full text-primary-50 text-center md:text-left">
+          <p className="text-lg lg:text-xl tracking-wider lg:max-w-screen-md w-full text-gray-3 text-center md:text-left">
             Host your own unforgettable party or join others in the ultimate social experience. Find, join, or create events that bring people together for moments worth celebrating!
           </p>
           <div className="relative flex justify-center  md:justify-start">

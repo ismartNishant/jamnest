@@ -8,12 +8,12 @@ import NewsLetter from "@/components/Common/NewsLetter";
 const PrivacyPolicy = () => {
   return (
     <MainLayout>
-      <div className="px-4 max-w-screen-lg mx-auto pt-28">
+      <section id="privacyPolicy" className="privacypolicy px-4 max-w-screen-lg mx-auto pt-28">
         <div className="flex flex-col gap-3 border-b-2 border-gray-300 pb-8">
           <h1 className=" text-4xl md:text-8xl text-primary font-semibold tracking-wider">
             Privacy Policy
           </h1>
-          <div className="flex items-center gap-2 text-lg font-medium tracking-wide text-stone-400">
+          <div className="flex items-center gap-2 text-lg font-medium tracking-wide text-gray-4">
             <Link className="hover:text-primary" href="/">
               Home
             </Link>
@@ -675,7 +675,7 @@ const PrivacyPolicy = () => {
             </p>
           </div>
         </div>
-      </div>
+      </section>
       <NewsLetter />
     </MainLayout>
   );

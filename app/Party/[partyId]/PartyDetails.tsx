@@ -11,6 +11,7 @@ import BannerCarousel from "@/components/Common/BannerCarousel";
 import parse from 'html-react-parser';
 import "./PartyDetails.css"
 import PartyDetailFaqs from "@/components/Common/Accordians/PartyDetailFaqs";
+import Link from "next/link";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -19,6 +20,7 @@ const ubuntu = Ubuntu({
 });
 
 interface Party {
+  partyId: string;
   title: string;
   image: string;
   hostedBy: string;
@@ -26,6 +28,7 @@ interface Party {
   date: string;
   price: string;
   time: string;
+  userId: string;
   partyType: string;
 }
 
@@ -87,6 +90,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
   return (
     <section className="w-full md:px-8 xl:px-24 py-16 xl:pt-20 px-4 ">
       <div className="max-w-screen-xl mx-auto">
+
         <div className="relative w-full   h-56 lg:h-[30rem] rounded-3xl overflow-hidden border-2 border-white/10">
           <Image
             fill
@@ -100,7 +104,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
         <div className="w-full flex justify-between gap-10 py-5">
           <div className="w-full max-w-screen-xl space-y-10">
             <div>
-              <h1 className={`text-6xl font-bold  ${ubuntu.className}`}>
+              <h1 className={`text-5xl font-bold  ${ubuntu.className}`}>
                 {party.title}
               </h1>
               <div className=" py-5 flex  items-center gap-5 flex-wrap">
@@ -139,18 +143,20 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
               <h1 className={`${ubuntu.className} text-4xl font-semibold`}>
                 Hosted By
               </h1>
-              <div className="w-full max-w-screen-md mr-auto py-5 px-12  border-2 border-white/10 flex items-center justify-between rounded-xl bg-white/5 ">
+              <div className="w-full max-w-screen-md mr-auto py-5 px-10  border-2 border-white/10 flex items-center justify-between rounded-xl bg-white/5 ">
                 <div className="flex items-center gap-5">
-                  <Avatar
-                    className="w-28 h-28 text-large"
-                    src="https://i.pravatar.cc/150?u=a04258114e29026708c"
-                  />
-                  <h1 className="text-3xl font-medium">Nishant rajput</h1>
+                  <Link href={`/user/${party.userId}`}>
+                    <Avatar
+                      className="w-28 h-28 text-large border-2 border-white/20 rounded-[35px] hover:scale-95 duration-300 ease-in-out"
+                      src="https://i.pravatar.cc/150?u=a04258114e29026708c"
+                    />
+                  </Link>
+                  <h1 className="text-3xl font-semibold">Nishant rajput</h1>
                 </div>
 
-                <div className="text-center bg-primary p-4 rounded-lg">
+                <div className="text-center bg-primary p-4 rounded-md">
                   <h1 className="text-5xl font-bold tracking-wide">12</h1>
-                  <p>Parties Hosted</p>
+                  <p className="text-base">Parties Hosted</p>
                 </div>
               </div>
             </div>
