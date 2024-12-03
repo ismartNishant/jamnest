@@ -5,6 +5,7 @@ import { LuCalendarRange } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
 import { IoTicket } from "react-icons/io5";
 import Link from "next/link";
+import { Button } from "@nextui-org/button";
 
 // Define props type for the component
 interface PartyCardProps {
@@ -12,6 +13,7 @@ interface PartyCardProps {
     image: string;
     hostedBy: string;
     location: string;
+    userId: string
     date: string;
     price: string;
     partyType: string;
@@ -26,15 +28,17 @@ const CardOne: React.FC<PartyCardProps> = ({
     date,
     price,
     partyType,
-    linkSrc, // Destructure 'linkSrc' instead of 'href'
+    linkSrc,
+    userId
 }) => {
     return (
-        <Card className="w-full rounded-xl group cursor-pointer hover:scale-105 duration-300 ease-in-out relative bg-transparent">
-            <Link href={`/Party/${linkSrc}` }> {/* Use linkSrc here */}
-                <div className="absolute top-0 right-0 bg-customGreen font-semibold text-black px-4 py-1 z-10 rounded-bl-xl">
-                    {partyType}
-                </div>
-                <CardBody className="h-52 lg:h-64 overflow-hidden">
+        <Card className="w-full rounded-xl group  hover:scale-105 duration-300 ease-in-out relative bg-transparent max-w-sm">
+
+            <div className="absolute top-0 right-0 bg-customGreen font-semibold text-black px-4 py-1 z-10 rounded-bl-xl">
+                {partyType}
+            </div>
+            <Link  href={`/Party/${linkSrc}`}>
+                <CardBody className="h-52 lg:h-56 overflow-hidden">
                     <Image
                         fill
                         alt="Card background"
@@ -42,35 +46,40 @@ const CardOne: React.FC<PartyCardProps> = ({
                         src={image} // Use the `image` prop for the image URL
                     />
                 </CardBody>
-                <CardFooter className="border-[2px] border-t-0 border-white/10 bg-secondary-900/30">
-                    <div className="text-left flex flex-col gap-1 lg:gap-2 w-full h-full bg-transparent order-t-0">
-                        <h1 className="text-2xl font-semibold">
-                            {title.length > 32 ? `${title.substring(0, 32)}...` : title}
-                        </h1>
-                        <h3 className="text-base lg:text-lg text-neutral-400">
-                            Hosted By{" "}
-                            <span className="underline font-semibold tracking-wider">
+            </Link>
+
+            <CardFooter className="border-[2px] border-t-0 border-white/10 bg-secondary-900/30  p-2 lg:p-3">
+                <div className="text-left flex flex-col gap-2 w-full h-full bg-transparent ">
+                    <h1 className="text-2xl font-semibold">
+                        {title.length > 32 ? `${title.substring(0, 32)}...` : title}
+                    </h1>
+                    <h3 className="text-base lg:text-lg text-neutral-400">
+                        Hosted By{" "}
+                        <Link href={`/user/${userId}`} className="underline font-semibold tracking-wider hover:text-primary">
+                            <span >
                                 {hostedBy}
                             </span>
-                        </h3>
-                        <div className="flex items-center gap-4 text-base lg:text-lg rounded-full bg-white/10 backdrop-blur-sm p-2">
-                            <div className="flex gap-1 items-center">
-                                <LuCalendarRange />
-                                {date}
-                            </div>
-                            <div className="flex gap-1 items-center">
-                                <GrLocation />
-                                {location.length > 26
-                                    ? `${location.substring(0, 26)}...`
-                                    : location}
-                            </div>
+                        </Link>
+                    </h3>
+                    <div className="flex items-center gap-4 text-sm lg:text-lg rounded-full bg-white/10 backdrop-blur-sm p-2">
+                        <div className="flex gap-1 items-center">
+                            <LuCalendarRange />
+                            {date}
                         </div>
-                        <div className="font-bold text-xl lg:text-2xl flex items-center w-auto ml-auto gap-2 p-1 px-3 rounded-md bg-primary mt-2">
-                            <IoTicket /> <span>₹ {price}</span>
+                        <div className="flex gap-1 items-center">
+                            <GrLocation />
+                            {location.length > 20
+                                ? `${location.substring(0, 20)}...`
+                                : location}
                         </div>
                     </div>
-                </CardFooter>
-            </Link>
+
+                    <Button as={Link} href={`/Party/${linkSrc}`} variant="ghost" color="primary" className="ml-auto w-auto text-xl font-semibold mt-2 " startContent={<IoTicket />}>
+                        <span>₹ {price}</span>
+                    </Button>
+                </div>
+            </CardFooter>
+
         </Card>
     );
 };
