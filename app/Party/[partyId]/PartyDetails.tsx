@@ -29,6 +29,7 @@ interface Party {
   price: string;
   time: string;
   userId: string;
+  partiesHosted:string;
   partyType: string;
 }
 
@@ -151,11 +152,11 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
                       src="https://i.pravatar.cc/150?u=a04258114e29026708c"
                     />
                   </Link>
-                  <h1 className="text-xl lg:text-3xl font-semibold">Nishant rajput</h1>
+                  <h1 className="text-xl lg:text-3xl font-semibold">{party.hostedBy}</h1>
                 </div>
 
                 <div className="text-center bg-primary p-2 lg:p-4 rounded-lg">
-                  <h1 className="text-3xl lg:text-5xl font-bold tracking-wide">12</h1>
+                  <h1 className="text-3xl lg:text-5xl font-bold tracking-wide">{party.partiesHosted}</h1>
                   <p className="text-xs lg:text-base">Parties Hosted</p>
                 </div>
               </div>

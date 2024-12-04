@@ -45,11 +45,11 @@ const PartyDetailFaqs = () => {
       <Accordion
         className='flex flex-col gap-5 p-0'
         itemClasses={{
-          base: 'text-white bg-white/5 border-2 border-white/10 lg:p-4 p-3',
+          base: 'text-white bg-white/5 border-2 border-white/10 ',
           title: `${ubuntu.className} text-xl lg:text-4xl uppercase font-semibold `,
           indicator: 'text-primary text-2xl lg:text-4xl  data-[open=true]:-rotate-90  ',
-          trigger: 'flex items-start py-0',
-          content:""
+          trigger: 'flex items-start lg:py-5',
+          content:"pt-0"
         }}
         selectionMode='multiple'
         variant='splitted'
@@ -61,7 +61,7 @@ const PartyDetailFaqs = () => {
           }
           title={`Whats Included`}
         >
-          <div className='flex  gap-5 flex-wrap'>
+          <div className='flex gap-2  lg:gap-5 flex-wrap'>
             {features.map((feature, index) => (
               <div
                 key={index}

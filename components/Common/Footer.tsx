@@ -6,8 +6,7 @@ import { FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { Fade, Slide, Zoom } from "react-awesome-reveal";
 import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
-import { LuSend } from "react-icons/lu";
+import SubscribeForm from "./Forms/SubscribeForm";
 
 const Footer = () => {
   const [activeLink, setActiveLink] = useState("/");
@@ -26,6 +25,7 @@ const Footer = () => {
     { href: "/HelpAndSupport", label: "Help" },
     { href: "/Refunds", label: "Refunds" },
   ];
+
 
   return (
     <footer className="w-full relative overflow-hidden  backdrop-blur-xl ">
@@ -48,7 +48,7 @@ const Footer = () => {
               </Link>
               <Fade>
                 <p
-                  className="tracking-wider text-sm
+                  className="tracking-wider text-sm lg:text-base
                   lg:max-w-xs text-left text-gray-3"
                 >
                   Host your own unforgettable party or join others in the
@@ -106,46 +106,11 @@ const Footer = () => {
             </ul>
           </div>
           <div className="lg:mx-auto w-full col-span-2 text-center lg:text-left ">
-            <h4 className="text-base md:text-lg font-medium mb-2 lg:mb-4 tracking-wide uppercase">
+            <h4 className="text-base md:text-lg font-semibold mb-2 lg:mb-4 tracking-wide uppercase">
               Subscribe to our newsletter
             </h4>
             <Zoom>
-              <div className="flex max-w-sm w-full mx-auto items-center gap-3 justify-between p-1.5 rounded-full border-2 border-primary">
-                <Input
-                  className=""
-                  classNames={{
-                    input: ["bg-transparent lg:text-lg"],
-                    innerWrapper: "bg-transparent",
-                    inputWrapper: [
-                      "shadow-xl",
-                      "bg-dark-2",
-                      "dark:bg-black",
-                      "backdrop-blur-xl",
-                      "backdrop-saturate-200",
-                      "hover:bg-black",
-                      "dark:hover:bg-black",
-                      "group-data-[focus=true]:bg-black",
-                      "dark:group-data-[focus=true]:bg-black",
-                      "!cursor-text",
-                    ],
-                  }}
-                  id="footer-subscribe-email"
-                  placeholder="Enter Email"
-                  radius="full"
-                  size="md"
-                  type="email"
-                />
-                <Button
-                  isIconOnly
-                  aria-label="send"
-                  color="primary"
-                  radius="full"
-                  size="md"
-                  variant="solid"
-                >
-                  <LuSend className="text-2xl  hover:rotate-45 duration-300 ease-in-out" />
-                </Button>
-              </div>
+              <SubscribeForm />
             </Zoom>
             <div className="flex items-center gap-4 pt-4">
               <Zoom>
@@ -195,7 +160,7 @@ const Footer = () => {
         </div>
         <div className="py-4 relative">
           <Slide>
-            <p className="text-base uppercase text-gray-4 text-center">
+            <p className="text-sm lg:text-base uppercase text-gray-4 text-center">
               © 2024 | All rights reserved | Genjee Technologies Private
               Limited
             </p>

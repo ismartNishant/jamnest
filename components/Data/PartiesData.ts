@@ -5,6 +5,7 @@ export const PartiesData = [
     "image": "/images/parties/p1.jpg",
     "hostedBy": "Rohan Gosavi",
     "userId": "Cd87p",
+    "partiesHosted": "15",
     "location": "Downtown Loft, NYC ,hghh ggokhgo ghgk hjgh",
     "date": "2024-11-15",
     "time": "8:00 PM to 1:00 AM", // Combined time range as a single string
@@ -17,6 +18,7 @@ export const PartiesData = [
     "image": "/images/parties/p4.jpg",
     "hostedBy": "Nishant Rajput",
     "userId": "Ab46d",
+    "partiesHosted": "5",
     "location": "Beach House, Malibu",
     "date": "2024-12-01",
     "time": "6:00 PM to 12:00 AM", // Combined time range as a single string
@@ -29,6 +31,7 @@ export const PartiesData = [
     "image": "/images/parties/p3.jpg",
     "hostedBy": "Akriti Negi",
     "userId": "Ef12q",
+    "partiesHosted": "9",
     "location": "Rooftop Lounge, LA",
     "date": "2024-11-20",
     "time": "9:30 PM to 2:30 AM", // Combined time range as a single string
