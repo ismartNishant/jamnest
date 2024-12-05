@@ -5,7 +5,7 @@ import Hero from "@/components/Common/Hero";
 import NewsLetter from "@/components/Common/NewsLetter";
 import MainLayout from "@/components/Layout/MianLayout";
 import Parties from "@/components/Home/Parties";
-import BannerCarousel from "@/components/Common/BannerCarousel";
+import BannerCarousel from "@/components/Common/Slider/BannerCarousel";
 import Faqs from "@/components/Common/Faqs";
 
 export const metadata: Metadata = {

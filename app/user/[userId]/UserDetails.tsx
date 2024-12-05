@@ -1,6 +1,9 @@
 import "./UserDetails.css";
 import UserProfileCard from "@/components/Common/Profile/UserProfileCard";
 import { HeadingOne } from "@/components/Common/Headings/HeadingOne";
+import HostedParties from "@/components/Common/Slider/HostedParties";
+import Gallery from "@/components/Common/Profile/Gallery";
+
 
 interface User {
   userId: string;
@@ -34,6 +37,8 @@ const UserDetails: React.FC<{ user: User }> = ({ user }) => {
       <div className="">
         <div>
           <HeadingOne>Hosted parties</HeadingOne>
+          <HostedParties />
+          <Gallery />
           <div />
         </div>
       </div>

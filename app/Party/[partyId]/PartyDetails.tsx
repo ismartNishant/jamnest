@@ -5,13 +5,16 @@ import { GrLocation } from "react-icons/gr";
 import { GrAlarm } from "react-icons/gr";
 import { Tooltip } from "@nextui-org/tooltip";
 import { Avatar } from "@nextui-org/avatar";
+import parse from "html-react-parser";
+import Link from "next/link";
+import { Card } from "@nextui-org/card";
 
 import PriceCard from "@/components/Common/Cards/PriceCard";
-import BannerCarousel from "@/components/Common/BannerCarousel";
-import parse from 'html-react-parser';
-import "./PartyDetails.css"
+import BannerCarousel from "@/components/Common/Slider/BannerCarousel";
+import "./PartyDetails.css";
 import PartyDetailFaqs from "@/components/Common/Accordians/PartyDetailFaqs";
-import Link from "next/link";
+import { Button } from "@nextui-org/button";
+import { LiaPrayingHandsSolid } from "react-icons/lia";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -29,8 +32,9 @@ interface Party {
   price: string;
   time: string;
   userId: string;
-  partiesHosted:string;
+  partiesHosted: string;
   partyType: string;
+  bookingOpen: boolean;
 }
 
 const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
@@ -91,7 +95,6 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
   return (
     <section className="w-full md:px-8 xl:px-24 py-16 xl:pt-20 px-4 ">
       <div className="max-w-screen-xl mx-auto">
-
         <div className="relative w-full   h-56 lg:h-[30rem] rounded-3xl overflow-hidden border-2 border-white/10">
           <Image
             fill
@@ -102,10 +105,12 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
             src={party.image}
           />
         </div>
-        <div className="w-full flex justify-between gap-10 py-2 lg:py-5">
+        <div className="w-full flex justify-between gap-10 py-2 lg:py-5 ">
           <div className="w-full max-w-screen-xl space-y-4 lg:space-y-10">
             <div className="space-y-2 lg:space-y-5">
-              <h1 className={`text-2xl lg:text-5xl font-bold  ${ubuntu.className}`}>
+              <h1
+                className={`text-2xl lg:text-5xl font-bold  ${ubuntu.className}`}
+              >
                 {party.title}
               </h1>
               <div className=" flex  items-center gap-2.5 lg:gap-5 flex-wrap">
@@ -141,7 +146,9 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
               </div>
             </div>
             <div className="space-y-2 lg:space-y-5">
-              <h1 className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}>
+              <h1
+                className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}
+              >
                 Hosted By
               </h1>
               <div className="w-full max-w-screen-md mr-auto lg:py-5 py-2 p-2 lg:px-10  border-2 border-white/10 flex items-center justify-between rounded-xl bg-white/5 ">
@@ -152,28 +159,49 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
                       src="https://i.pravatar.cc/150?u=a04258114e29026708c"
                     />
                   </Link>
-                  <h1 className="text-xl lg:text-3xl font-semibold">{party.hostedBy}</h1>
+                  <h1 className="text-xl lg:text-3xl font-semibold">
+                    {party.hostedBy}
+                  </h1>
                 </div>
 
                 <div className="text-center bg-primary p-2 lg:p-4 rounded-lg">
-                  <h1 className="text-3xl lg:text-5xl font-bold tracking-wide">{party.partiesHosted}</h1>
+                  <h1 className="text-3xl lg:text-5xl font-bold tracking-wide">
+                    {party.partiesHosted}
+                  </h1>
                   <p className="text-xs lg:text-base">Parties Hosted</p>
                 </div>
               </div>
             </div>
             <div className="space-y-2 lg:space-y-5">
-              <h1 className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}>
+              <h1
+                className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}
+              >
                 About the Party
               </h1>
-              <div className="about-party-content flex flex-col gap-2 lg:gap-4">{parse(AboutPartContent)}</div>
+              <div className="about-party-content flex flex-col gap-2 lg:gap-4">
+                {parse(AboutPartContent)}
+              </div>
             </div>
             <PartyDetailFaqs />
           </div>
-          <PriceCard price={party.price} />
+          <div className="w-full relative max-w-sm">
+            <div className="sticky top-24">
+              {party.bookingOpen ? (
+                <PriceCard price={party.price} />
+              ) : (
+                <Card className="p-5 space-y-4 hidden lg:block  ">
+                  <Button className="text-lg w-full" isDisabled  >Bookking Closed</Button>
+                  <h1 className="text-xl flex items-center  gap-2"> Better luck next time! <LiaPrayingHandsSolid className="text-primary text-4xl " /> </h1>
+                </Card>
+              )}
+            </div>
+          </div>
         </div>
         <BannerCarousel carouselBannerImages={images} />
         <div>
-          <h1 className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}>
+          <h1
+            className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}
+          >
             Discover Similar House Parties
           </h1>
         </div>

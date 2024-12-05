@@ -8,17 +8,21 @@ import { IoMdHelpCircleOutline } from "react-icons/io";
 import CouponModal from "../Modal/CouponModal";
 import { TbRosetteDiscount } from "react-icons/tb";
 
+
+    
+
 interface PriceCardProps {
     price: string;
+    className?: string;
 }
 
-const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
-    const [count, setCount] = useState(1); // Number of guests
+const PriceCard: React.FC<PriceCardProps> = ({ price,className }) => {
+    const [count, setCount] = useState(1); 
     const maxLimit = 10;
 
     const pricePerPerson = parseFloat(price);
-    const platformFee = 3; // Fixed platform fee
-    const taxes = 6; // Fixed taxes
+    const platformFee = 3; 
+    const taxes = 6; 
     const commissionRate = 0.03;
 
     // Coupon state
@@ -82,8 +86,8 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
     const total = discountedSubtotal + platformFee + taxes + commission;
 
     return (
-        <div className="w-full relative max-w-sm hidden lg:block">
-            <div className="border-2 border-primary bg-gradient-to-br from-primary/50 to-secondary/20 rounded-2xl transition-transform transform hover:scale-105 sticky top-20">
+        
+            <div className= {`${className } hidden lg:block border-2 border-primary bg-gradient-to-br from-primary/50 to-secondary/20 rounded-2xl transition-transform transform hover:scale-105 `}>
                 <div className="p-5 space-y-3">
                     <h1 className="text-5xl font-bold tracking-wide">
                         ₹{price}
@@ -201,7 +205,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ price }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        
     );
 };
 

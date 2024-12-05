@@ -85,5 +85,41 @@ export const UsersData = [
       "favoriteTVShow": "Stranger Things",
       "interests": ["Hiking", "Music", "Yoga", "Movies"]
     },
+    {
+      "userId": "Wx56y",
+      "name": "Sneha Gupta",
+      "partiesAttended": "50",
+      "partiesHosted": "9",
+      "avgRating": "4.9",
+      "verifiedInfo": ["Phone number", "Government ID"],
+      "profileStatus": "Verified",
+      "profileImage": "https://i.pravatar.cc/150?u=a04258114e29026708c",
+      "about": "A foodie who turns any party into a feast!",
+      "languagesSpoken": ["English", "Urdu"],
+      "location": "Delhi, India",
+      "funFact": "I can name all the spices in any dish blindfolded",
+      "uselessSkill": "Perfectly mimic bird sounds",
+      "favoriteMovie": "The Great Gatsby",
+      "favoriteTVShow": "The Crown",
+      "interests": ["Cooking", "Fashion", "Gardening", "Fitness"]
+    },
+    {
+      "userId": "Zy78k",
+      "name": "rahul Verma",
+      "partiesAttended": "50",
+      "partiesHosted": "9",
+      "avgRating": "4.9",
+      "verifiedInfo": ["Phone number", "Government ID"],
+      "profileStatus": "Verified",
+      "profileImage": "https://i.pravatar.cc/150?u=a04258114e29026708c",
+      "about": "A foodie who turns any party into a feast!",
+      "languagesSpoken": ["English", "Urdu"],
+      "location": "Delhi, India",
+      "funFact": "I can name all the spices in any dish blindfolded",
+      "uselessSkill": "Perfectly mimic bird sounds",
+      "favoriteMovie": "The Great Gatsby",
+      "favoriteTVShow": "The Crown",
+      "interests": ["Cooking", "Fashion", "Gardening", "Fitness"]
+    },
   ];
   

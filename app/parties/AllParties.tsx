@@ -3,62 +3,78 @@ import React from "react";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import MainLayout from "@/components/Layout/MianLayout";
 import CardOne from "@/components/Common/Cards/CardOne";
-import BannerCarousel from "@/components/Common/BannerCarousel";
+import BannerCarousel from "@/components/Common/Slider/BannerCarousel";
 import { PartiesData } from "@/components/Data/PartiesData";
 
 const AllParties = () => {
   const todayParties = [
     {
-      "partyId": "D4E5F6",
-      "title": "The House Party You’ll Never Forget!",
-      "image": "/images/parties/p4.jpg",
-      "hostedBy": "Nishant Rajput",
-      "userId": "Ab46d",
-      "location": "Beach House, Malibu",
-      "date": "2024-12-01",
-      "time": "6:00 PM to 12:00 AM", // Combined time range as a single string
-      "price": "1499",
-      "partyType": "Beach Party",
+      partyId: "J0K1L2",
+      title: "Friends, Beats & Good Times!",
+      image: "/images/parties/p2.jpg",
+      hostedBy: "Priyesh Thakre",
+      userId: "Gh34r",
+      partiesHosted: "5",
+      location: "Warehouse, Brooklyn",
+      date: "2024-11-25",
+      time: "7:00 PM to 12:00 AM",
+      price: "1299",
+      partyType: "House Party",
+      aboutParty:
+        "Experience a vibrant party in a trendy Brooklyn warehouse. Expect great music, amazing people, and unforgettable memories.",
+      bookingOpen: false,
     },
     {
-      "partyId": "A1B2C3",
-      "title": "Friends, Beats & Good Times!",
-      "image": "/images/parties/p1.jpg",
-      "hostedBy": "Rohan Gosavi",
-      "userId": "Cd87p",
-      "location": "Downtown Loft, NYC ,hghh ggokhgo ghgk hjgh",
-      "date": "2024-11-15",
-      "time": "8:00 PM to 1:00 AM", // Combined time range as a single string
-      "price": "899",
-      "partyType": "House Party",
+      partyId: "M3N4O5",
+      title: "Carnival Nights: Dance & Delight!",
+      image: "/images/parties/p1.jpg",
+      hostedBy: "Sneha Gupta",
+      userId: "Wx56y",
+      partiesHosted: "20",
+      location: "Open Grounds, Miami",
+      date: "2024-12-10",
+      time: "6:00 PM to 11:00 PM",
+      price: "999",
+      partyType: "Outdoor Party",
+      aboutParty:
+        "Step into a carnival-inspired evening filled with dance, lights, and delightful treats. A magical experience under the Miami skies!",
+      bookingOpen: true,
     },
   ];
 
   // Tomorrow's Parties
   const tomorrowParties = [
     {
-      "partyId": "G7H8I9",
-      "title": "Get Your Groove On!",
-      "image": "/images/parties/p3.jpg",
-      "hostedBy": "Akriti Negi",
-      "userId": "Ef12q",
-      "location": "Rooftop Lounge, LA",
-      "date": "2024-11-20",
-      "time": "9:30 PM to 2:30 AM", // Combined time range as a single string
-      "price": "799",
-      "partyType": "Rooftop Party",
+      partyId: "P6Q7R8",
+      title: "Masquerade Ball: Mystery Awaits",
+      image: "/images/parties/p2.jpg",
+      hostedBy: "Rahul Verma",
+      userId: "Zy78k",
+      partiesHosted: "12",
+      location: "Grand Ballroom, Las Vegas",
+      date: "2024-12-20",
+      time: "9:00 PM to 2:00 AM",
+      price: "1799",
+      partyType: "Formal Party",
+      aboutParty:
+        "Dress to impress and embrace the mystery at our grand masquerade ball in Las Vegas. An elegant night to remember!",
+      bookingOpen: false,
     },
     {
-      "partyId": "J0K1L2",
-      "title": "Friends, Beats & Good Times!",
-      "image": "/images/parties/p2.jpg",
-      "hostedBy": "Priyesh Thakre",
-      "userId": "Gh34r",
-      "location": "Warehouse, Brooklyn",
-      "date": "2024-11-25",
-      "time": "7:00 PM to 12:00 AM", // Combined time range as a single string
-      "price": "1299",
-      "partyType": "House Party",
+      partyId: "D4E5F6",
+      title: "The House Party You’ll Never Forget!",
+      image: "/images/parties/p4.jpg",
+      hostedBy: "Nishant Rajput",
+      userId: "Ab46d",
+      partiesHosted: "5",
+      location: "Beach House, Malibu",
+      date: "2024-12-01",
+      time: "6:00 PM to 12:00 AM",
+      price: "1499",
+      partyType: "Beach Party",
+      aboutParty:
+        "Enjoy the perfect beach vibes with soothing music, bonfires, and cocktails. A one-of-a-kind party experience in Malibu!",
+      bookingOpen: false,
     },
   ];
 

@@ -7,7 +7,7 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
-} from "../ui/carousel";
+} from "../../ui/carousel";
 
 interface BannerCarouselProps {
     carouselBannerImages: { imgSrc: string; name: string }[];
