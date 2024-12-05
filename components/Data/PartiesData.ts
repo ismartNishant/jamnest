@@ -44,6 +44,7 @@ export const PartiesData = [
     "image": "/images/parties/p2.jpg",
     "hostedBy": "Priyesh Thakre",
     "userId": "Gh34r",
+    "partiesHosted": "10",
     "location": "Warehouse, Brooklyn",
     "date": "2024-11-25",
     "time": "7:00 PM to 12:00 AM", // Combined time range as a single string
