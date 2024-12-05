@@ -2,7 +2,6 @@
 import React from "react";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import MainLayout from "@/components/Layout/MianLayout";
-import { HeadingOne } from "@/components/Common/Headings/HeadingOne";
 import CardOne from "@/components/Common/Cards/CardOne";
 import BannerCarousel from "@/components/Common/BannerCarousel";
 import { PartiesData } from "@/components/Data/PartiesData";
@@ -74,9 +73,9 @@ const AllParties = () => {
   return (
     <MainLayout>
       <section className="w-full md:px-8 xl:px-24 py-12 xl:pt-24 px-4">
-        <HeadingOne className="text-transparent text-center mt-5 text-5xl  font-bold lg:text-9xl bg-clip-text bg-gradient-to-r from-primary to-secondary">
+        <h1 className="text-transparent font-Ubuntu text-center mt-5 text-5xl  font-bold lg:text-9xl bg-clip-text bg-gradient-to-r from-primary to-secondary">
           Discover All
-        </HeadingOne>
+        </h1>
         <div className="flex w-full flex-col ">
           <Tabs
             aria-label="Options"

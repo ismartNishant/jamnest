@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import Image from "next/image";
 import { Ubuntu } from "next/font/google";
-import { HeadingOne } from "./Headings/HeadingOne";
 import { LiaChevronRightSolid, LiaChevronDownSolid } from 'react-icons/lia'
 
 const ubuntu = Ubuntu({
@@ -61,9 +60,9 @@ const Faqs = () => {
 
     return (
         <div className="w-full md:px-8 lg:p-20  p-4 ">
-            <HeadingOne className="text-3xl lg:text-6xl  font-bold uppercase text-center pb-5 lg:pb-10">
+            <h1 className="text-3xl lg:text-6xl font-bold uppercase text-center pb-5 lg:pb-10 font-Ubuntu">
                 FAQs
-            </HeadingOne>
+            </h1>
 
             <div className="flex gap-5 lg:gap-20  items-start mx-auto w-full flex-col lg:flex-row">
                 <div className="max-w-md flex justify-center items-center w-full ">

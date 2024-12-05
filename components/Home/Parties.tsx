@@ -17,7 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import { HeadingOne } from "../Common/Headings/HeadingOne";
+
 
 const Parties = () => {
   const plugin = React.useRef(
@@ -30,9 +30,9 @@ const Parties = () => {
       id="Parties"
     >
       <div className="flex items-center justify-between w-full  mb-5 lg:mb-10">
-        <HeadingOne className="text-3xl lg:text-6xl  font-bold uppercase">
+        <h1 className="text-3xl lg:text-6xl  font-bold uppercase font-Ubuntu">
           Parties
-        </HeadingOne>
+        </h1>
         <Link
           className="flex justify-center gap-2 items-center bg-primary/15  shadow-xl text-lg  backdrop-blur-md lg:font-semibold isolation-auto border-primary before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-2 lg:px-4 py-1 lg:py-2 overflow-hidden border-2 rounded-full group"
           href="/parties"
