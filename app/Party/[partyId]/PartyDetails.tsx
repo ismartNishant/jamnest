@@ -1,4 +1,4 @@
-import { Ubuntu } from "next/font/google";
+
 import Image from "next/image";
 import { LuCalendarRange } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
@@ -8,7 +8,6 @@ import { Avatar } from "@nextui-org/avatar";
 import parse from "html-react-parser";
 import Link from "next/link";
 import { Card } from "@nextui-org/card";
-
 import PriceCard from "@/components/Common/Cards/PriceCard";
 import BannerCarousel from "@/components/Common/Slider/BannerCarousel";
 import "./PartyDetails.css";
@@ -16,11 +15,7 @@ import PartyDetailFaqs from "@/components/Common/Accordians/PartyDetailFaqs";
 import { Button } from "@nextui-org/button";
 import { LiaPrayingHandsSolid } from "react-icons/lia";
 
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "700"],
-});
+
 
 interface Party {
   partyId: string;
@@ -109,7 +104,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
           <div className="w-full max-w-screen-xl space-y-4 lg:space-y-10">
             <div className="space-y-2 lg:space-y-5">
               <h1
-                className={`text-2xl lg:text-5xl font-bold  ${ubuntu.className}`}
+                className={`text-2xl lg:text-5xl font-bold  font-Ubuntu`}
               >
                 {party.title}
               </h1>
@@ -147,7 +142,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
             </div>
             <div className="space-y-2 lg:space-y-5">
               <h1
-                className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}
+                className={`font-Ubuntu text-2xl lg:text-4xl font-semibold`}
               >
                 Hosted By
               </h1>
@@ -174,7 +169,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
             </div>
             <div className="space-y-2 lg:space-y-5">
               <h1
-                className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}
+                className={`font-Ubuntu text-2xl lg:text-4xl font-semibold`}
               >
                 About the Party
               </h1>
@@ -200,7 +195,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
         <BannerCarousel carouselBannerImages={images} />
         <div>
           <h1
-            className={`${ubuntu.className} text-2xl lg:text-4xl font-semibold`}
+            className={`font-Ubuntu text-2xl lg:text-4xl font-semibold`}
           >
             Discover Similar House Parties
           </h1>

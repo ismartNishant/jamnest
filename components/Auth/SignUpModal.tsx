@@ -1,15 +1,10 @@
 import React from "react";
 import { Modal, ModalContent, ModalBody } from "@nextui-org/modal";
 import { Button } from "@nextui-org/button";
-import { Ubuntu } from "next/font/google";
 import { Input } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/select";
 
-const ubuntu = Ubuntu({
-    subsets: ["latin"],
-    display: "swap",
-    weight: ["300", "400", "500", "700"],
-});
+
 
 interface SignUpModalProps {
     isOpen: boolean;
@@ -115,7 +110,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onOpenChange }) => {
                         <div className="flex flex-col justify-center space-y-3 lg:space-y-4">
                             <div className="text-center">
                                 <h1
-                                    className={`${ubuntu.className} font-medium text-2xl   lg;text-4xl uppercase tracking-wide`}
+                                    className={`font-Ubuntu font-medium text-2xl   lg;text-4xl uppercase tracking-wide`}
                                 >
                                     Sign Up
                                 </h1>

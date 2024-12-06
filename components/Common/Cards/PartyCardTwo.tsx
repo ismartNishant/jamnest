@@ -17,10 +17,10 @@ interface PartyCardProps {
     date: string;
     price: string;
     partyType: string;
-    linkSrc: string; // Changed the prop to 'linkSrc'
+    linkSrc: string; 
 }
 
-const CardOne: React.FC<PartyCardProps> = ({
+const PartyCardTwo: React.FC<PartyCardProps> = ({
     title,
     image,
     hostedBy,
@@ -84,4 +84,4 @@ const CardOne: React.FC<PartyCardProps> = ({
     );
 };
 
-export default CardOne;
+export default PartyCardTwo;

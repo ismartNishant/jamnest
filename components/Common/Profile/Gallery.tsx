@@ -10,20 +10,16 @@ import {
 } from "@nextui-org/modal";
 import { Button } from "@nextui-org/button";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import SliderOne from "../Slider/SliderOne";
+import { CarouselItem } from "@/components/ui/carousel";
 
-import { HeadingOne } from "../Headings/HeadingOne";
+type GalleryProps = {
+    images: string[]; // Array of image URLs
+};
 
-const Gallery = () => {
+const Gallery = ({ images }: GalleryProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-    const images = [
-        { id: 1, src: "/images/parties/p1.jpg" },
-        { id: 2, src: "/images/parties/p2.jpg" },
-        { id: 3, src: "/images/parties/p3.jpg" },
-        { id: 4, src: "/images/parties/p4.jpg" },
-    ];
-
 
     const handlePrev = () => {
         if (activeIndex !== null) {
@@ -37,7 +33,6 @@ const Gallery = () => {
         }
     };
 
-    // Open modal and set active image index
     const openModal = (index: number) => {
         setActiveIndex(index);
         onOpen(); // Open modal
@@ -45,61 +40,64 @@ const Gallery = () => {
 
     return (
         <section className="py-10 space-y-4">
-            <HeadingOne>Party Gallery</HeadingOne>
-            <div className=" flex items-center gap-4 flex-wrap justify-center">
+            <SliderOne title="Images Gallery">
                 {images.map((image, index) => (
-                    <div
-                        role='button'
-                        key={image.id}
-                        className="relative cursor-pointer w-56 h-56  rounded-lg overflow-hidden hover:scale-105 duration-300 ease-in-out"
-                        onClick={() => openModal(index)}
-                    >
-                        <Image
-                            fill
-                            alt={`Thumbnail ${index + 1}`}
-                            className=" object-cover"
-                            src={image.src}
-                        />
-                    </div>
+                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
+                        <div
+                            key={index}
+                            className="relative cursor-pointer w-full max-w-md h-full min-h-64 rounded-lg overflow-hidden hover:scale-95 duration-300 ease-in-out group"
+                        >
+                            <Image
+                                fill
+                                alt={`Thumbnail ${index + 1}`}
+                                className="object-cover"
+                                src={image}
+                            />
+
+
+                            <div role="button" onClick={() => openModal(index)} className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out flex items-center justify-center">
+                                <span className="z-10 bg-primary rounded-full px-6 py-1.5 uppercase text-xl font-semibold ">View</span>
+                            </div>
+                        </div>
+                    </CarouselItem>
                 ))}
-            </div>
+            </SliderOne>
 
             {/* Modal */}
             <Modal
-            placement='center'
+                placement="center"
                 closeButton
                 aria-labelledby="image-gallery"
                 isOpen={isOpen}
                 className="bg-secondary-900 border-2 border-white/10 "
                 classNames={{
-                    
-                    closeButton: 'bg-primary text-white hover:bg-white hover:text-primary text-xl'
+                    closeButton: "bg-primary text-white hover:bg-white hover:text-primary text-xl",
                 }}
                 size="4xl"
                 backdrop="blur"
                 onClose={onClose}
             >
-                <ModalContent className="py-5">
+                <ModalContent className="py-5 pt-10 ">
                     <ModalBody className="px-2">
-                        <div className="relative w-full h-full flex items-center justify-center gap-2 lg:gap-5">
+                        <div className="relative w-full h-full flex items-center justify-center gap-1.5 lg:gap-5">
                             <Button
                                 isIconOnly
                                 aria-label="Previous image"
-                                className=""
                                 color="primary"
+                                className=" min-w-1 w-6 lg:w-11 h-10  "
                                 variant="ghost"
                                 onClick={handlePrev}
                             >
-                                <FaChevronLeft />
+                                <FaChevronLeft className="text-lg" />
                             </Button>
 
                             {activeIndex !== null && (
-                                <div className="w-full h-56 lg:h-[500px] relative overflow-hidden rounded-xl">
+                                <div className="w-full min-h-56 lg:h-[500px] relative overflow-hidden rounded-xl">
                                     <Image
                                         fill
                                         alt={`Image ${activeIndex + 1}`}
-                                        className="object-cover "
-                                        src={images[activeIndex].src}
+                                        className="object-cover"
+                                        src={images[activeIndex]}
                                     />
                                 </div>
                             )}
@@ -107,12 +105,12 @@ const Gallery = () => {
                             <Button
                                 isIconOnly
                                 aria-label="Next image"
-                                className=""
                                 color="primary"
+                                className="min-w-1 w-6  lg:w-11 h-10 "
                                 variant="ghost"
                                 onClick={handleNext}
                             >
-                                <FaChevronRight />
+                                <FaChevronRight  className="text-lg" />
                             </Button>
                         </div>
                     </ModalBody>

@@ -17,6 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
+import PartyCardOne from "../Common/Cards/PartyCardOne";
 
 
 const Parties = () => {
@@ -30,7 +31,7 @@ const Parties = () => {
       id="Parties"
     >
       <div className="flex items-center justify-between w-full  mb-5 lg:mb-10">
-        <h1 className="text-3xl lg:text-6xl  font-bold uppercase font-Ubuntu">
+        <h1 className="text-3xl lg:text-5xl  font-medium uppercase font-Ubuntu">
           Parties
         </h1>
         <Link
@@ -67,52 +68,7 @@ const Parties = () => {
                 key={party.partyId}
                 className="md:basis-1/2 lg:basis-1/3 cursor-pointer group"
               >
-                <Card className="bg-white/5 backdrop-blur-sm border-0 text-white">
-                  <Link href={`/Party/${party.partyId}`}>
-                    <div className="relative aspect-square overflow-hidden rounded-lg">
-                      <div className="absolute top-0 right-0 bg-customGreen font-semibold text-black px-4 py-1 z-10 rounded-bl-xl">
-                        {party.partyType}
-                      </div>
-                      <Image
-                        alt={party.title}
-                        className="rounded-lg transform transition-transform duration-500 ease-in-out group-hover:scale-110" // Added scaling on hover
-                        layout="fill"
-                        objectFit="cover"
-                        src={party.image}
-                      />
-                      <div className="absolute   w-full h-auto bottom-0 left-0 bg-secondary/50 hover:backdrop-blur-sm  bg-opacity-80 text-white  ">
-                        <div className="bg-black/70 p-2 lg:p-3 w-full h-full  flex flex-col gap-1 lg:gap-2">
-                          <h1 className="text-2xl lg:text-3xl font-semibold">
-                            {party.title.length > 28
-                              ? `${party.title.substring(0, 28)}...`
-                              : party.title}
-                          </h1>
-                          <h3 className="text-base lg:text-lg">
-                            Hosted By{" "}
-                            <span className="underline font-semibold tracking-wider">
-                              {party.hostedBy}{" "}
-                            </span>
-                          </h3>
-                          <div className="flex items-center gap-4 text-base lg:text-lg">
-                            <div className="flex gap-1  items-center ">
-                              <LuCalendarRange />
-                              {party.date}
-                            </div>
-                            <div className="flex gap-1 items-center ">
-                              <GrLocation />
-                              {party.location.length > 20
-                                ? `${party.location.substring(0, 20)}...`
-                                : party.location}
-                            </div>
-                          </div>
-                          <div className="font-bold text-xl lg:text-2xl flex items-center w-auto ml-auto gap-2 p-1 px-3  rounded-md  bg-primary">
-                            <IoTicket /> <span>₹ {party.price} </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </Card>
+                <PartyCardOne key={party.partyId} {...party} />
               </CarouselItem>
             ))}
           </CarouselContent>

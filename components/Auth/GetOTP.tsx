@@ -11,13 +11,6 @@ import React, { useEffect } from "react";
 import { FaRegUser } from "react-icons/fa6";
 import { TbPhone } from "react-icons/tb";
 import SignUpModal from "./SignUpModal";
-import { Ubuntu } from "next/font/google";
-
-const ubuntu = Ubuntu({
-    subsets: ["latin"],
-    display: "swap",
-    weight: ['300', '400', '500', '700'],
-});
 
 export default function AuthButton() {
 
@@ -189,7 +182,7 @@ const [isTimerActive, setIsTimerActive] = React.useState(false); // To track if 
                                     >
                                         {!otpStage ? (
                                             <>
-                                                <h1 className={`${ubuntu.className} text-xl lg:text-2xl font-normal uppercase lg:pb-5 text-center`}>
+                                                <h1 className={`font-Ubuntu text-xl lg:text-2xl font-normal uppercase lg:pb-5 text-center`}>
                                                     Verify your mobile number
                                                 </h1>
                                                 <Input
@@ -248,7 +241,7 @@ const [isTimerActive, setIsTimerActive] = React.useState(false); // To track if 
                                             // OTP stage - render OTP input and verify button
                                             <>
                                                 <div className=" space-y-0.5 ">
-                                                    <h1 className={`${ubuntu.className} text-xl lg:text-2xl font-normal uppercase lg:pb-5 text-center`}>
+                                                    <h1 className={`font-Ubuntu text-xl lg:text-2xl font-normal uppercase lg:pb-5 text-center`}>
                                                         OTP Verification
                                                     </h1>
                                                     <p>

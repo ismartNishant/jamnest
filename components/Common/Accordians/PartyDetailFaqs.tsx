@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
-import { Ubuntu } from 'next/font/google'
 import { LiaChevronRightSolid, LiaChevronDownSolid } from 'react-icons/lia'
 
 import {
@@ -14,14 +13,10 @@ import { FaSmoking, FaBanSmoking } from 'react-icons/fa6'
 import { MdPets } from 'react-icons/md'
 import { BiDrink } from 'react-icons/bi'
 import { LuParkingSquare, LuParkingSquareOff } from 'react-icons/lu'
-import { TbTruckDelivery, TbElevator, TbElevatorOff } from 'react-icons/tb';
+import { TbElevator, TbElevatorOff } from 'react-icons/tb';
 import { RiEBike2Fill } from "react-icons/ri";
 
-const ubuntu = Ubuntu({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300', '400', '700']
-})
+
 
 const PartyDetailFaqs = () => {
   const features = [
@@ -46,7 +41,7 @@ const PartyDetailFaqs = () => {
         className='flex flex-col gap-5 p-0'
         itemClasses={{
           base: 'text-white bg-white/5 border-2 border-white/10 ',
-          title: `${ubuntu.className} text-xl lg:text-4xl uppercase font-semibold `,
+          title: `font_ubuntu text-xl lg:text-4xl uppercase font-semibold `,
           indicator: 'text-primary text-2xl lg:text-4xl  data-[open=true]:-rotate-90  ',
           trigger: 'flex items-start lg:py-5',
           content:"pt-0"

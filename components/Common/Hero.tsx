@@ -1,13 +1,8 @@
 import React from "react";
 import { Button } from "@nextui-org/button";
 import { GiPartyPopper } from "react-icons/gi";
-import { Ubuntu } from "next/font/google";
 import Image from "next/image";
-const ubuntu = Ubuntu({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300', '400', '700']
-})
+
 
 const Hero = () => {
   return (
@@ -15,7 +10,7 @@ const Hero = () => {
       <div className="relative grid min-h-screen w-full grid-cols-1 mx-auto gap-4 lg:gap-0  lg:grid-cols-6 px-4 py-20 lg:p-24 items-center justify-center">
         <div className="w-full lg:col-span-4   space-y-2 lg:space-y-8 lg:order-first lg:pt-10 ">
           <h1 className="text-4xl lg:text-7xl font-semibold text-center md:text-left relative">
-            Celebrate Together, <span className={`${ubuntu.className} text-transparent text-5xl  font-bold lg:text-9xl bg-clip-text bg-gradient-to-r from-primary to-secondary`}> Anywhere! </span>
+            Celebrate Together, <span className={`font-Ubuntu text-transparent text-5xl  font-bold lg:text-9xl bg-clip-text bg-gradient-to-r from-primary to-secondary`}> Anywhere! </span>
             <Image src="/images/icons/confetti2.svg" className="absolute  top-0  right-32 hidden md:block" alt="icon-img" width={100} height={100} />
           </h1>
           <p className="text-base lg:text-xl tracking-wider lg:max-w-screen-md w-full text-gray-3 text-center md:text-left">

@@ -3,14 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import Image from "next/image";
-import { Ubuntu } from "next/font/google";
 import { LiaChevronRightSolid, LiaChevronDownSolid } from 'react-icons/lia'
-
-const ubuntu = Ubuntu({
-    subsets: ["latin"],
-    display: "swap",
-    weight: ["300", "400", "700"],
-});
 
 const Faqs = () => {
     const faqData = [
@@ -88,7 +81,7 @@ const Faqs = () => {
                         defaultExpandedKeys={["0"]}
                         itemClasses={{
                             base: "text-white bg-transparent ",
-                            title: `${ubuntu.className} text-lg lg:text-2xl uppercase font-semibold `,
+                            title: `font-Ubuntu text-lg lg:text-2xl uppercase font-semibold `,
                             indicator: "text-primary text-3xl  data-[open=true]:-rotate-90 ",
                             trigger: " flex items-start py-1 ",
                             content:'pt-1'

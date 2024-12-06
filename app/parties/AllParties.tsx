@@ -2,9 +2,10 @@
 import React from "react";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import MainLayout from "@/components/Layout/MianLayout";
-import CardOne from "@/components/Common/Cards/CardOne";
 import BannerCarousel from "@/components/Common/Slider/BannerCarousel";
 import { PartiesData } from "@/components/Data/PartiesData";
+import PartyCardTwo from "@/components/Common/Cards/PartyCardTwo";
+
 
 const AllParties = () => {
   const todayParties = [
@@ -108,7 +109,7 @@ const AllParties = () => {
             <Tab key="all" className="text-lg" title="All">
               <div className="flex flex-wrap gap-10 justify-center">
                 {PartiesData.map((party, index) => (
-                  <CardOne
+                  <PartyCardTwo
                     linkSrc={party.partyId}
                     key={index}
                     date={party.date}
@@ -124,7 +125,7 @@ const AllParties = () => {
             <Tab key="today" className="text-lg" title="Today">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-center">
                 {todayParties.map((party, index) => (
-                  <CardOne
+                  <PartyCardTwo
                     key={index}
                     linkSrc={party.partyId}
                     date={party.date}
@@ -142,7 +143,7 @@ const AllParties = () => {
             <Tab key="tomorrow" className="text-lg" title="Tomorrow">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-center">
                 {tomorrowParties.map((party, index) => (
-                  <CardOne
+                  <PartyCardTwo
                     linkSrc={party.partyId}
                     key={index}
                     date={party.date}

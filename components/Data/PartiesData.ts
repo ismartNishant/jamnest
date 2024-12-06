@@ -65,7 +65,7 @@ export const PartiesData = [
   },
   {
     partyId: "M3N4O5",
-    title: "Carnival Nights: Dance & Delight!",
+    title: "Carnival Nights Dance & Delight!",
     image: "/images/parties/p1.jpg",
     hostedBy: "Sneha Gupta",
     userId: "Wx56y",
@@ -81,7 +81,7 @@ export const PartiesData = [
   },
   {
     partyId: "P6Q7R8",
-    title: "Masquerade Ball: Mystery Awaits",
+    title: "Masquerade Ball  Mystery Awaits",
     image: "/images/parties/p2.jpg",
     hostedBy: "Rahul Verma",
     userId: "Zy78k",
