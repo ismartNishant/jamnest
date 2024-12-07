@@ -87,7 +87,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ price,className }) => {
 
     return (
         
-            <div className= {`${className } hidden lg:block border-2 border-primary bg-gradient-to-br from-primary/50 to-secondary/20 rounded-2xl transition-transform transform hover:scale-105 `}>
+            <div className= {`${className }  border-2 border-primary bg-gradient-to-br from-primary/50 to-secondary/20 rounded-2xl transition-transform transform hover:scale-105 `}>
                 <div className="p-5 space-y-3">
                     <h1 className="text-5xl font-bold tracking-wide">
                         ₹{price}

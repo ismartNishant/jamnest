@@ -14,6 +14,7 @@ export const PartiesData = [
     aboutParty:
       "An unforgettable evening with great music, drinks, and fun vibes in the heart of NYC. Perfect for catching up with friends and dancing the night away!",
     bookingOpen: true,
+    rating: 4.5,
   },
   {
     partyId: "D4E5F6",
@@ -30,6 +31,7 @@ export const PartiesData = [
     aboutParty:
       "Enjoy the perfect beach vibes with soothing music, bonfires, and cocktails. A one-of-a-kind party experience in Malibu!",
     bookingOpen: false,
+    rating: 4.8,
   },
   {
     partyId: "G7H8I9",
@@ -46,6 +48,7 @@ export const PartiesData = [
     aboutParty:
       "Join us at the rooftop for a night of mesmerizing city views, electrifying beats, and an unforgettable party atmosphere.",
     bookingOpen: true,
+    rating: 4.7,
   },
   {
     partyId: "J0K1L2",
@@ -62,6 +65,7 @@ export const PartiesData = [
     aboutParty:
       "Experience a vibrant party in a trendy Brooklyn warehouse. Expect great music, amazing people, and unforgettable memories.",
     bookingOpen: false,
+    rating: 4.6,
   },
   {
     partyId: "M3N4O5",
@@ -78,6 +82,7 @@ export const PartiesData = [
     aboutParty:
       "Step into a carnival-inspired evening filled with dance, lights, and delightful treats. A magical experience under the Miami skies!",
     bookingOpen: true,
+    rating: 4.9,
   },
   {
     partyId: "P6Q7R8",
@@ -94,5 +99,6 @@ export const PartiesData = [
     aboutParty:
       "Dress to impress and embrace the mystery at our grand masquerade ball in Las Vegas. An elegant night to remember!",
     bookingOpen: false,
+    rating: 4.3,
   },
 ];

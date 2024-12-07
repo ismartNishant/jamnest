@@ -11,28 +11,25 @@ type SliderOneProps = {
 };
 
 const SliderOne = ({ title, children, CarouselcontentClassName }: SliderOneProps) => {
-    const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+    // const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
 
     return (
-        <div className="relative">
+        <div className="relative mx-auto">
             <Carousel
-                className="w-full"
-                opts={{
-                    align: "start",
-                }}
-                plugins={[plugin.current]}
-                onMouseEnter={plugin.current.stop}
-                onMouseLeave={plugin.current.reset}
+                className="w-full mx-auto"
+                // plugins={[plugin.current]}
+                // onMouseEnter={plugin.current.stop}
+                // onMouseLeave={plugin.current.reset}
             >
 
-                <div className={title ? (`relative`) : (`flex items-center justify-between relative`)}>
+                <div className={`relative flex items-center min-h-8 lg:min-h-10 justify-between relative mb-4 lg:mb-6`}>
                     {title && <HeadingOne>{title}</HeadingOne>}
-                    <div className={`absolute top-4 lg:top-6 right-12 lg:right-16`}>
+                    <div className={`absolute top-4 lg:top-6 right-12 lg:right-16 `}>
                         <CarouselPrevious className="" />
                         <CarouselNext className="" />
                     </div>
                 </div>
-                <CarouselContent className={` ${CarouselcontentClassName || "mt-4 lg:mt-8"}`}>
+                <CarouselContent className={` ${CarouselcontentClassName}`} >
                     {children}
                 </CarouselContent>
             </Carousel>

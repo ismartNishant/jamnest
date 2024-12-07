@@ -1,11 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { Card } from "@nextui-org/card";
 import Autoplay from "embla-carousel-autoplay";
-import { GrLocation } from "react-icons/gr";
-import { IoTicket } from "react-icons/io5";
-import { LuCalendarRange } from "react-icons/lu";
 import Link from "next/link";
 
 import { PartiesData } from "../Data/PartiesData";
@@ -66,7 +61,7 @@ const Parties = () => {
             {PartiesData.map((party, index) => (
               <CarouselItem
                 key={party.partyId}
-                className="md:basis-1/2 lg:basis-1/3 cursor-pointer group"
+                className="md:basis-1/2 xl:basis-1/3 cursor-pointer group"
               >
                 <PartyCardOne key={party.partyId} {...party} />
               </CarouselItem>

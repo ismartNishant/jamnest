@@ -58,7 +58,7 @@ const Faqs = () => {
             </h1>
 
             <div className="flex gap-5 lg:gap-20  items-start mx-auto w-full flex-col lg:flex-row">
-                <div className="max-w-md flex justify-center items-center w-full ">
+                <div className="max-w-md md:max-w-screen-xl flex justify-center items-center w-full mx-auto ">
                     <motion.div
                         key={currentImage}
                         animate={{ opacity: 1, scale: 1 }}

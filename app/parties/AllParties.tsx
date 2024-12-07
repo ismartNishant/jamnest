@@ -110,7 +110,7 @@ const AllParties = () => {
               <div className="flex flex-wrap gap-10 justify-center">
                 {PartiesData.map((party, index) => (
                   <PartyCardTwo
-                    linkSrc={party.partyId}
+                    partyId={party.partyId}
                     key={index}
                     date={party.date}
                     hostedBy={party.hostedBy}
@@ -118,7 +118,7 @@ const AllParties = () => {
                     location={party.location}
                     price={party.price}
                     title={party.title}
-                    partyType={party.partyType} userId={party.userId}                  />
+                    partyType={party.partyType} userId={party.userId} />
                 ))}
               </div>
             </Tab>
@@ -127,7 +127,7 @@ const AllParties = () => {
                 {todayParties.map((party, index) => (
                   <PartyCardTwo
                     key={index}
-                    linkSrc={party.partyId}
+                    partyId={party.partyId}
                     date={party.date}
                     hostedBy={party.hostedBy}
                     image={party.image}
@@ -135,7 +135,7 @@ const AllParties = () => {
                     price={party.price}
                     title={party.title}
                     partyType={party.partyType}
-                    userId={party.userId}  
+                    userId={party.userId}
                   />
                 ))}
               </div>
@@ -144,7 +144,7 @@ const AllParties = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-center">
                 {tomorrowParties.map((party, index) => (
                   <PartyCardTwo
-                    linkSrc={party.partyId}
+                    partyId={party.partyId}
                     key={index}
                     date={party.date}
                     hostedBy={party.hostedBy}
@@ -153,7 +153,7 @@ const AllParties = () => {
                     price={party.price}
                     title={party.title}
                     partyType={party.partyType}
-                    userId={party.userId}  
+                    userId={party.userId}
                   />
                 ))}
               </div>

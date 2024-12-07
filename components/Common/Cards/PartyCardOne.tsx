@@ -4,6 +4,7 @@ import Image from "next/image";
 import { LuCalendarRange } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
 import { IoTicket } from "react-icons/io5";
+import { Button } from "@nextui-org/button";
 
 type PartyCardOneProps = {
   partyId: string;
@@ -65,10 +66,9 @@ const PartyCardOne: React.FC<PartyCardOneProps> = ({
                     : location}
                 </div>
               </div>
-              <div className="font-bold text-xl lg:text-2xl flex items-center w-auto ml-auto gap-2 p-1 px-3 rounded-md bg-primary">
-                <IoTicket />
+              <Button  variant="ghost" color="primary" className="ml-auto w-auto text-lg lg:text-xl font-semibold mt-2 " startContent={<IoTicket />}>
                 <span>₹ {price}</span>
-              </div>
+              </Button>
             </div>
           </div>
         </div>

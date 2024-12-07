@@ -14,6 +14,13 @@ import "./PartyDetails.css";
 import PartyDetailFaqs from "@/components/Common/Accordians/PartyDetailFaqs";
 import { Button } from "@nextui-org/button";
 import { LiaPrayingHandsSolid } from "react-icons/lia";
+import { HeadingOne } from "@/components/Common/Headings/HeadingOne";
+import SliderOne from "@/components/Common/Slider/SliderOne";
+import { PartiesData } from "@/components/Data/PartiesData";
+import { CarouselItem } from "@/components/ui/carousel";
+import PartyCardTwo from "@/components/Common/Cards/PartyCardTwo";
+import { FaRegStarHalfStroke } from "react-icons/fa6";
+import PartyCardThree from "@/components/Common/Cards/PartycCardThree";
 
 
 
@@ -90,7 +97,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
   return (
     <section className="w-full md:px-8 xl:px-24 py-16 xl:pt-20 px-4 ">
       <div className="max-w-screen-xl mx-auto">
-        <div className="relative w-full   h-56 lg:h-[30rem] rounded-3xl overflow-hidden border-2 border-white/10">
+        <div className="relative w-full  h-56 lg:h-[30rem] rounded-3xl overflow-hidden border-2 border-white/10">
           <Image
             fill
             priority
@@ -179,12 +186,12 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
             </div>
             <PartyDetailFaqs />
           </div>
-          <div className="w-full relative max-w-sm">
-            <div className="sticky top-24">
+          <div className="w-full relative max-w-sm hidden lg:block ">
+            <div className="sticky top-24 ">
               {party.bookingOpen ? (
                 <PriceCard price={party.price} />
               ) : (
-                <Card className="p-5 space-y-4 hidden lg:block  ">
+                <Card className="p-5 space-y-4  ">
                   <Button className="text-lg w-full" isDisabled  >Bookking Closed</Button>
                   <h1 className="text-xl flex items-center  gap-2"> Better luck next time! <LiaPrayingHandsSolid className="text-primary text-4xl " /> </h1>
                 </Card>
@@ -194,11 +201,24 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
         </div>
         <BannerCarousel carouselBannerImages={images} />
         <div>
-          <h1
-            className={`font-Ubuntu text-2xl lg:text-4xl font-semibold`}
-          >
-            Discover Similar House Parties
-          </h1>
+          <HeadingOne>Discover Similar House Parties </HeadingOne>
+          <SliderOne>
+            {PartiesData.map((party, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4  justify-center">
+                <PartyCardThree
+                  partyType={party.partyType}
+                  location={party.location}
+                  key={party.partyId}
+                  partyId={party.partyId}
+                  image={party.image}
+                  title={party.title}
+                  date={party.date}
+                  rating={party.rating}
+                  price={party.price}
+                />
+              </CarouselItem>
+            ))}
+          </SliderOne>
         </div>
       </div>
       <div />

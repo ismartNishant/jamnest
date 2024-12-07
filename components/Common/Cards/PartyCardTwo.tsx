@@ -17,7 +17,7 @@ interface PartyCardProps {
     date: string;
     price: string;
     partyType: string;
-    linkSrc: string; 
+    partyId: string; 
 }
 
 const PartyCardTwo: React.FC<PartyCardProps> = ({
@@ -28,16 +28,15 @@ const PartyCardTwo: React.FC<PartyCardProps> = ({
     date,
     price,
     partyType,
-    linkSrc,
+    partyId,
     userId
 }) => {
     return (
-        <Card className="w-full rounded-xl group  hover:scale-105 duration-300 ease-in-out relative bg-transparent max-w-sm">
-
+        <Card className="w-full h-full max-w-sm rounded-xl group  hover:scale-105 duration-300 ease-in-out relative bg-transparent ">
             <div className="absolute top-0 right-0 bg-customGreen font-semibold text-black px-4 py-1 z-10 rounded-bl-xl">
                 {partyType}
             </div>
-            <Link  href={`/Party/${linkSrc}`}>
+            <Link  href={`/Party/${partyId}`}>
                 <CardBody className="h-52 lg:h-56 overflow-hidden">
                     <Image
                         fill
@@ -61,7 +60,7 @@ const PartyCardTwo: React.FC<PartyCardProps> = ({
                             </span>
                         </Link>
                     </h3>
-                    <div className="flex items-center gap-4 text-sm lg:text-lg rounded-full bg-white/10 backdrop-blur-sm p-2">
+                    <div className="flex items-center gap-4 text-sm lg:text-base rounded-full bg-white/10 backdrop-blur-sm p-2">
                         <div className="flex gap-1 items-center">
                             <LuCalendarRange />
                             {date}
@@ -74,7 +73,7 @@ const PartyCardTwo: React.FC<PartyCardProps> = ({
                         </div>
                     </div>
 
-                    <Button as={Link} href={`/Party/${linkSrc}`} variant="ghost" color="primary" className="ml-auto w-auto text-xl font-semibold mt-2 " startContent={<IoTicket />}>
+                    <Button as={Link} href={`/Party/${partyId}`} variant="ghost" color="primary" className="ml-auto w-auto text-lg lg:text-xl font-semibold mt-2 " startContent={<IoTicket />}>
                         <span>₹ {price}</span>
                     </Button>
                 </div>
