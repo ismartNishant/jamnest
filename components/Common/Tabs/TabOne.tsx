@@ -24,14 +24,14 @@ const TabOne: React.FC<TabOneProps> = ({ tabsData, tabHeading }) => {
         variant="underlined"
         className=""
         classNames={{
-          tabList: " gap-2 lg:gap-6 w-full relative rounded-none p-0 flex-wrap ",
+          tabList: " gap-1 lg:gap-6 w-full relative rounded-none p-0 flex-wrap ",
           cursor: "w-full bg-primary",
-          tab: "max-w-fit h-12  text-xs lg:text-lg px-3 font-semibold uppercase tracking-wide ",
+          tab: "max-w-fit h-12  text-xs lg:text-lg px-3 font-medium uppercase tracking-wide ",
           tabContent: "group-data-[selected=true]:text-primary text-white hover:text-primary",
         }}
       >
         {tabsData.map((tab) => (
-          <Tab key={tab.key} title={tab.title}>
+          <Tab key={tab.key} title={tab.title} className='p-0'>
             {tab.content}
           </Tab>
         ))}

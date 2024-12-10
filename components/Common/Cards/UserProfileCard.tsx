@@ -3,14 +3,15 @@ import React from "react";
 import { Avatar } from "@nextui-org/avatar";
 import { FaMedal } from "react-icons/fa6";
 import EditProfile from "../Buttons/EditProfile";
-
+import { LuMail } from "react-icons/lu";
+import { LuPhoneCall } from "react-icons/lu";
 interface UserProfileCardProps {
   name: string;
   profileImage: string;
   partiesAttended: string;
   partiesHosted: string;
   avgRating: string;
-  isEditable?: boolean; 
+  isEditable?: boolean;
 }
 
 const UserProfileCard: React.FC<UserProfileCardProps> = ({
@@ -19,7 +20,7 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({
   partiesAttended,
   partiesHosted,
   avgRating,
-  isEditable = false, 
+  isEditable = false,
 }) => {
   return (
     <div className="w-full pt-5 lg:p-10 mx-auto  bg-gradient-to-br rounded-2xl from-primary to-secondary ">
@@ -39,6 +40,11 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({
               <h2 className="flex items-center gap-2 text-lg lg:text-2xl text-emerald-400 font-semibold justify-center lg:justify-start ">
                 <FaMedal /> Verified
               </h2>
+              <div className=" ">
+                <h3 className="flex items-center gap-2"><LuMail />
+                  nishnatrajputa11@gmail.com</h3>
+                <h3 className="flex items-center gap-2"> <LuPhoneCall /> 7218566898</h3>
+              </div>
 
             </div>
             <div className="flex justify-center items-center gap-5 text-center bg-white/10 p-2.5 lg:p-5 rounded-lg w-full lg:w-auto">
