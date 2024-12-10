@@ -9,7 +9,6 @@ import BannerCarousel from "@/components/Common/Slider/BannerCarousel";
 import Faqs from "@/components/Common/Faqs";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.globalkartel.com"),
   robots: {
     index: true,
     follow: true,

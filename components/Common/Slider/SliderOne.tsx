@@ -14,7 +14,7 @@ const SliderOne = ({ title, children, CarouselcontentClassName }: SliderOneProps
     // const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
 
     return (
-        <div className="relative mx-auto">
+        <div className="relative mx-auto ">
             <Carousel
                 className="w-full mx-auto"
                 // plugins={[plugin.current]}

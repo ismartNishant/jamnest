@@ -16,17 +16,17 @@ interface TabOneProps {
 
 const TabOne: React.FC<TabOneProps> = ({ tabsData, tabHeading }) => {
   return (
-    <div>
-      <HeadingOne className='text-center'>{tabHeading}</HeadingOne>
+    <div className=''>
+      <HeadingOne className='text-center '>{tabHeading}</HeadingOne>
       <Tabs
         aria-label="Events Options"
         color="primary"
         variant="underlined"
         className=""
         classNames={{
-          tabList: " gap-1 lg:gap-6 w-full relative rounded-none p-0 flex-wrap ",
+          tabList: " gap-5 lg:gap-6 w-full relative rounded-none p-0 flex-wrap pb-2 ",
           cursor: "w-full bg-primary",
-          tab: "max-w-fit h-12  text-xs lg:text-lg px-3 font-medium uppercase tracking-wide ",
+          tab: "max-w-fit h-8 lg:h-12  text-xs lg:text-lg px-3 font-medium uppercase tracking-wide ",
           tabContent: "group-data-[selected=true]:text-primary text-white hover:text-primary",
         }}
       >

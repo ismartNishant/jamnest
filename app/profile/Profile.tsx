@@ -22,10 +22,10 @@ const Profile = () => {
         profileImage="https://i.pravatar.cc/150?u=a04258114e29026708c"
       />
       <PersonalInfo />
-      <div className="w-full border-2 border-white/10 bg-white/5 rounded-xl p-2 lg:p-5 space-y-5">
+      <div className="w-full border-2 border-white/10 bg-white/5 rounded-xl p-2 lg:p-5 space-y-2 lg:space-y-5">
         <div className="flex gap-4 w-full ">
           <Button
-            className={` lg:text-lg uppercase   font-semibold tracking-wide ${activeTab === "myEvents"
+            className={` lg:text-lg uppercase   tracking-wide ${activeTab === "myEvents"
               ? "bg-primary text-white"
               : "bg-transparent border-2 border-white/15 text-white hover:border-primary"
               }`}
@@ -35,7 +35,7 @@ const Profile = () => {
             My Events
           </Button>
           <Button
-            className={`lg:text-lg uppercase   font-semibold  tracking-wide  ${activeTab === "hostedEvents"
+            className={`lg:text-lg uppercase     tracking-wide  ${activeTab === "hostedEvents"
               ? "bg-primary text-white"
               : "bg-transparent border-2 border-white/15 text-white hover:border-primary"
               }`}

@@ -11,7 +11,7 @@ const MyEventsTab = () => {
       key: "upcoming",
       title: "Upcoming",
       content: (
-        <div className=" flex flex-wrap gap-5 justify-between lg:pt-5">
+        <div className=" flex flex-wrap gap-5 justify-center lg:pt-5">
           {PartiesData.map((party, index) => (
             <PartyCardThree
               className="max-w-sm"

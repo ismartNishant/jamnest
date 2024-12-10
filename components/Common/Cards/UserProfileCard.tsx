@@ -34,16 +34,16 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({
           </div>
           <div className="w-full flex items-center justify-center lg:justify-between flex-wrap gap-2  ">
             <div className=" lg:space-y-1">
-              <h1 className="font-Ubuntu font-medium text-2xl lg:text-5xl">
+              <h1 className="font-Ubuntu font-medium text-2xl lg:text-5xl text-center">
                 {name}
               </h1>
               <h2 className="flex items-center gap-2 text-lg lg:text-2xl text-emerald-400 font-semibold justify-center lg:justify-start ">
                 <FaMedal /> Verified
               </h2>
-              <div className=" ">
-                <h3 className="flex items-center gap-2"><LuMail />
+              <div className="text-sm lg:text-xl space-y-1">
+                <h3 className="flex items-center gap-2 justify-center lg:justify-start"><LuMail />
                   nishnatrajputa11@gmail.com</h3>
-                <h3 className="flex items-center gap-2"> <LuPhoneCall /> 7218566898</h3>
+                <h3 className="flex items-center gap-2  justify-center lg:justify-start"> <LuPhoneCall /> 7218566898</h3>
               </div>
 
             </div>
