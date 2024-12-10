@@ -7,6 +7,7 @@ import MainLayout from "@/components/Layout/MianLayout";
 import Parties from "@/components/Home/Parties";
 import BannerCarousel from "@/components/Common/Slider/BannerCarousel";
 import Faqs from "@/components/Common/Faqs";
+import { Testomonials } from "@/components/Home/Testomonials";
 
 export const metadata: Metadata = {
   robots: {
@@ -81,6 +82,7 @@ const page = () => {
       <Parties />
       <BannerCarousel carouselBannerImages={images} />
       <Faqs />
+      <Testomonials />
       <NewsLetter />
     </MainLayout>
   );

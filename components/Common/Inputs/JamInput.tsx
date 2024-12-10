@@ -12,6 +12,7 @@ interface JamInputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   color?: "danger" | "success" | "default";
   errorMessage?: string;
+  arialabelledby:string;
   isInvalid?: boolean;
   required?: boolean; 
 }
@@ -27,12 +28,14 @@ const JamInput: React.FC<JamInputProps> = ({
   onChange,
   color = "default",
   errorMessage = "",
+  arialabelledby,
   isInvalid = false,
   required = false, // Default to false unless passed
 }) => {
   return (
     <Input
       className={className}
+      aria-labelledby ={arialabelledby}
       classNames={{
         input: [
           "text-lg font-medium tracking-wider",

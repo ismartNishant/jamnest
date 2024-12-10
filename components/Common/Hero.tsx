@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@nextui-org/button";
 import { GiPartyPopper } from "react-icons/gi";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const Hero = () => {
@@ -18,6 +19,8 @@ const Hero = () => {
           </p>
           <div className="relative flex justify-center  md:justify-start">
             <Button
+            as={Link}
+            href="/hostaparty"
               className="uppercase font-semibold hover:scale-110 duration-300 ease-in-out  text-lg lg:text-xl"
               color="primary"
               endContent={<GiPartyPopper className="text-2xl" />}
@@ -26,9 +29,11 @@ const Hero = () => {
             >
               Host A Party
             </Button>
+           
             <Image src="/images/icons/disco-ball.svg" className="absolute top-10 lg:top-12 left-28" alt="icon-img" width={100} height={100} />
           </div>
           <div className="">
+            
             {/* <Image src="/images/icons/mask.svg" className="absolute top-20 " alt="icon-img" width={100} height={100} /> */}
           </div>
         </div>

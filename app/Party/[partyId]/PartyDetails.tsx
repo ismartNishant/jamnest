@@ -18,8 +18,6 @@ import { HeadingOne } from "@/components/Common/Headings/HeadingOne";
 import SliderOne from "@/components/Common/Slider/SliderOne";
 import { PartiesData } from "@/components/Data/PartiesData";
 import { CarouselItem } from "@/components/ui/carousel";
-import PartyCardTwo from "@/components/Common/Cards/PartyCardTwo";
-import { FaRegStarHalfStroke } from "react-icons/fa6";
 import PartyCardThree from "@/components/Common/Cards/PartycCardThree";
 
 
@@ -47,7 +45,7 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
     { imgSrc: "/images/banner-carousel/b4.jpg", name: "Banner 4" },
   ];
 
-  const AboutPartContent = `
+  const AboutPartyContent = `
       <h1>Event Description: The Sufi Soirée – A Night of Soulful Melodies</h1>
       <p>
         Step into an enchanting world of music, rhythm, and devotion at **The
@@ -95,134 +93,151 @@ const PartyDetails: React.FC<{ party: Party }> = ({ party }) => {
   `;
 
   return (
-    <section className="w-full md:px-8 xl:px-24 py-16 xl:pt-20 px-4 ">
-      <div className="max-w-screen-xl mx-auto">
-        <div className="relative w-full  h-56 lg:h-[30rem] rounded-3xl overflow-hidden border-2 border-white/10">
-          <Image
-            fill
-            priority
-            alt={party.title}
-            className="object-cover object-center"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-            src={party.image}
-          />
-        </div>
-        <div className="w-full flex justify-between gap-10 py-2 lg:py-5 ">
-          <div className="w-full max-w-screen-xl space-y-4 lg:space-y-10">
-            <div className="space-y-2 lg:space-y-5">
-              <h1
-                className={`text-2xl lg:text-5xl font-bold  font-Ubuntu`}
-              >
-                {party.title}
-              </h1>
-              <div className=" flex  items-center gap-2.5 lg:gap-5 flex-wrap">
-                <Tooltip
-                  color="primary"
-                  content={<p className="p-2 text-base ">{party.location} </p>}
-                  offset={4}
-                  placement="bottom"
-                  showArrow={true}
-                >
-                  <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
-                    <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-500 ">
-                      <GrLocation />
-                    </span>
-                    {party.location.length > 30
-                      ? `${party.location.slice(0, 30)}...`
-                      : party.location}
-                  </p>
-                </Tooltip>
+    <>
+      <div className=" xl:hidden fixed bottom-0 z-10 w-full">
+        <div className=" ">
+          {party.bookingOpen ? (
+            <div className=" bg-gradient-to-br from-primary to-secondary p-5 ">
+              <h1 className="text-3xl">Comming soon</h1>
+            </div>
 
-                <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
-                  <span className="p-1.5 rounded-lg bg-sky-500/20 text-sky-500 ">
-                    <LuCalendarRange />
-                  </span>
-                  {party.date}
-                </p>
-                <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
-                  <span className="p-1.5 rounded-lg bg-yellow-500/20 text-yellow-500 ">
-                    <GrAlarm />
-                  </span>
-                  {party.time}
-                </p>
-              </div>
-            </div>
-            <div className="space-y-2 lg:space-y-5">
-              <h1
-                className={`font-Ubuntu text-2xl lg:text-4xl font-semibold`}
-              >
-                Hosted By
-              </h1>
-              <div className="w-full max-w-screen-md mr-auto lg:py-5 py-2 p-2 lg:px-10  border-2 border-white/10 flex items-center justify-between rounded-xl bg-white/5 ">
-                <div className="flex items-center gap-3 lg:gap-5">
-                  <Link href={`/user/${party.userId}`}>
-                    <Avatar
-                      className="w-14 h-14 lg:w-28 lg:h-28 text-large border-2 border-white/20  lg:rounded-[35px] hover:scale-95 duration-300 ease-in-out"
-                      src="https://i.pravatar.cc/150?u=a04258114e29026708c"
-                    />
-                  </Link>
-                  <h1 className="text-xl lg:text-3xl font-semibold">
-                    {party.hostedBy}
-                  </h1>
-                </div>
-
-                <div className="text-center bg-primary p-2 lg:p-4 rounded-lg">
-                  <h1 className="text-3xl lg:text-5xl font-bold tracking-wide">
-                    {party.partiesHosted}
-                  </h1>
-                  <p className="text-xs lg:text-base">Parties Hosted</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-2 lg:space-y-5">
-              <h1
-                className={`font-Ubuntu text-2xl lg:text-4xl font-semibold`}
-              >
-                About the Party
-              </h1>
-              <div className="about-party-content flex flex-col gap-2 lg:gap-4">
-                {parse(AboutPartContent)}
-              </div>
-            </div>
-            <PartyDetailFaqs />
-          </div>
-          <div className="w-full relative max-w-sm hidden lg:block ">
-            <div className="sticky top-24 ">
-              {party.bookingOpen ? (
-                <PriceCard price={party.price} />
-              ) : (
-                <Card className="p-5 space-y-4  ">
-                  <Button className="text-lg w-full" isDisabled  >Bookking Closed</Button>
-                  <h1 className="text-xl flex items-center  gap-2"> Better luck next time! <LiaPrayingHandsSolid className="text-primary text-4xl " /> </h1>
-                </Card>
-              )}
-            </div>
-          </div>
-        </div>
-        <BannerCarousel carouselBannerImages={images} />
-        <div>
-          <HeadingOne>Discover Similar House Parties </HeadingOne>
-          <SliderOne>
-            {PartiesData.map((party, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4  justify-center">
-                <PartyCardThree
-                  partyType={party.partyType}
-                  location={party.location}
-                  key={party.partyId}
-                  partyId={party.partyId}
-                  image={party.image}
-                  title={party.title}
-                  date={party.date}
-                  rating={party.rating}
-                  price={party.price}
-                />
-              </CarouselItem>
-            ))}
-          </SliderOne>
+          ) : (
+            <Card className="p-5 space-y-4  rounded-none ">
+              <Button className="text-lg w-full" isDisabled  >Bookking Closed</Button>
+              <h1 className="text-xl flex items-center  gap-2"> Better luck next time! <LiaPrayingHandsSolid className="text-primary text-4xl " /> </h1>
+            </Card>
+          )}
         </div>
       </div>
-      <div />
-    </section>
+      <section className="w-full md:px-8 xl:px-24 py-16 xl:pt-20 px-4 ">
+
+        <div className="max-w-screen-xl mx-auto relative">
+          <div className="relative w-full  h-56 lg:h-[30rem] rounded-3xl overflow-hidden border-2 border-white/10">
+            <Image
+              fill
+              priority
+              alt={party.title}
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+              src={party.image}
+            />
+          </div>
+          <div className="w-full flex justify-between gap-10 py-2 lg:py-5 ">
+            <div className="w-full max-w-screen-xl space-y-4 lg:space-y-10">
+              <div className="space-y-2 lg:space-y-5">
+                <h1
+                  className={`text-2xl lg:text-5xl font-bold  font-Ubuntu`}
+                >
+                  {party.title}
+                </h1>
+                <div className=" flex  items-center gap-2.5 lg:gap-5 flex-wrap">
+                  <Tooltip
+                    color="primary"
+                    content={<p className="p-2 text-base ">{party.location} </p>}
+                    offset={4}
+                    placement="bottom"
+                    showArrow={true}
+                  >
+                    <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
+                      <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-500 ">
+                        <GrLocation />
+                      </span>
+                      {party.location.length > 30
+                        ? `${party.location.slice(0, 30)}...`
+                        : party.location}
+                    </p>
+                  </Tooltip>
+
+                  <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
+                    <span className="p-1.5 rounded-lg bg-sky-500/20 text-sky-500 ">
+                      <LuCalendarRange />
+                    </span>
+                    {party.date}
+                  </p>
+                  <p className="flex items-center gap-2 text-sm lg:text-xl bg-white/10 p-1 lg:p-2 rounded-lg border-2 border-white/10">
+                    <span className="p-1.5 rounded-lg bg-yellow-500/20 text-yellow-500 ">
+                      <GrAlarm />
+                    </span>
+                    {party.time}
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-2 lg:space-y-5">
+                <h1
+                  className={`font-Ubuntu text-2xl lg:text-4xl font-semibold`}
+                >
+                  Hosted By
+                </h1>
+                <div className="w-full max-w-screen-md mr-auto lg:py-5 py-2 p-2 lg:px-10  border-2 border-white/10 flex items-center justify-between rounded-xl bg-white/5 ">
+                  <div className="flex items-center gap-3 lg:gap-5">
+                    <Link href={`/user/${party.userId}`}>
+                      <Avatar
+                        className="w-14 h-14 lg:w-28 lg:h-28 text-large border-2 border-white/20  lg:rounded-[35px] hover:scale-95 duration-300 ease-in-out"
+                        src="https://i.pravatar.cc/150?u=a04258114e29026708c"
+                      />
+                    </Link>
+                    <h1 className="text-xl lg:text-3xl font-semibold">
+                      {party.hostedBy}
+                    </h1>
+                  </div>
+
+                  <div className="text-center bg-primary p-2 lg:p-4 rounded-lg">
+                    <h1 className="text-3xl lg:text-5xl font-bold tracking-wide">
+                      {party.partiesHosted}
+                    </h1>
+                    <p className="text-xs lg:text-base">Parties Hosted</p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-2 lg:space-y-5">
+                <h1
+                  className={`font-Ubuntu text-2xl lg:text-4xl font-semibold`}
+                >
+                  About the Party
+                </h1>
+                <div className="about-party-content flex flex-col gap-2 lg:gap-4">
+                  {parse(AboutPartyContent)}
+                </div>
+              </div>
+              <PartyDetailFaqs />
+            </div>
+            <div className="w-full relative max-w-sm hidden xl:block ">
+              <div className="sticky top-24 ">
+                {party.bookingOpen ? (
+                  <PriceCard price={party.price} />
+                ) : (
+                  <Card className="p-5 space-y-4  ">
+                    <Button className="text-lg w-full" isDisabled  >Bookking Closed</Button>
+                    <h1 className="text-xl flex items-center  gap-2"> Better luck next time! <LiaPrayingHandsSolid className="text-primary text-4xl " /> </h1>
+                  </Card>
+                )}
+              </div>
+            </div>
+          </div>
+          <BannerCarousel carouselBannerImages={images} />
+          <div>
+            <HeadingOne>Discover Similar House Parties </HeadingOne>
+            <SliderOne>
+              {PartiesData.map((party, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4  justify-center">
+                  <PartyCardThree
+                    partyType={party.partyType}
+                    location={party.location}
+                    key={party.partyId}
+                    partyId={party.partyId}
+                    image={party.image}
+                    title={party.title}
+                    date={party.date}
+                    rating={party.rating}
+                    price={party.price}
+                  />
+                </CarouselItem>
+              ))}
+            </SliderOne>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

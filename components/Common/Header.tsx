@@ -147,7 +147,7 @@ const Header = () => {
 
         {/* Tickets Button */}
         <div className="flex  gap-5 items-center  uppercase ">
-          <Button className="uppercase font-semibold  hidden lg:flex text-base" variant="ghost" color="primary" radius="full" endContent={<GiPartyPopper className="text-2xl" />}>Host A party</Button>
+          <Button as={Link} href="/hostaparty" className="uppercase font-semibold  hidden lg:flex text-base" variant="ghost" color="primary" radius="full" endContent={<GiPartyPopper className="text-2xl" />}>Host A party</Button>
           <AuthButton />
           <Dropdown>
             <DropdownTrigger>

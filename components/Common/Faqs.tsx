@@ -58,7 +58,7 @@ const Faqs = () => {
             </h1>
 
             <div className="flex gap-5 lg:gap-20  items-start mx-auto w-full flex-col lg:flex-row">
-                <div className="max-w-md md:max-w-screen-xl flex justify-center items-center w-full mx-auto ">
+                <div className=" max-w-screen-lg lg:max-w-lg flex justify-center items-center w-full mx-auto ">
                     <motion.div
                         key={currentImage}
                         animate={{ opacity: 1, scale: 1 }}
@@ -92,7 +92,6 @@ const Faqs = () => {
                     >
                         {faqData.map((faq, index) => (
                             <AccordionItem
-                          
                                 key={index}
                                 aria-label={`FAQ ${index + 1}`}
                                 indicator={({ isOpen }) =>
